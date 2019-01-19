@@ -1,0 +1,4 @@
+applications:
+- name: makeUP
+  random-route: true
+  memory: 256M

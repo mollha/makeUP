@@ -1,0 +1,35 @@
+{
+  "name": "makeUP",
+  "version": "1.0.0",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mollha/makeUP.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mollha/makeUP/issues"
+  },
+  "homepage": "https://github.com/mollha/makeUP#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "depcheck": "^0.6.11",
+    "express": "^4.16.4",
+    "jest": "^23.6.0",
+    "jquery": "^3.3.1",
+    "jsonwebtoken": "^8.4.0",
+    "mongo": "^0.1.0",
+    "mongodb": "^3.1.10",
+    "mongoose": "^5.4.3",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.18.9"
+  },
+  "devDependencies": {},
+  "description": ""
+}

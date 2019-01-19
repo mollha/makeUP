@@ -1,0 +1,117 @@
+body {
+    font-family: 'Roboto Condensed', sans-serif;
+    text-transform: uppercase;
+    color: #636363;
+    background:linear-gradient(to bottom, #f2f4f7 0%, white 100%) no-repeat;
+    padding-top: 30px;
+    background-size: 100%;
+}
+
+header .icons{
+    background-color: #7a7a7a;
+    height: 30px;
+    text-align: right;
+    position: fixed;
+    top:0;
+    z-index: 16;
+    width: 100%;
+}
+header .icons #returnBtn{
+    margin-right: 20px;
+    text-transform: uppercase;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 12px;
+}
+
+main #adminContent{
+    width: 90%;
+}
+
+main .sectionWrap{
+    width: 95%;
+    min-height: 100px;
+    margin: 10px auto;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(200, 200, 200,0.8);
+    text-align: center;
+}
+
+
+main #adminContent #adminImage{
+    width: 25%;
+    padding: 10px 0;
+}
+main #adminContent #adminWrap{
+    width: 97.5%;
+    margin: 30px 1% 10px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(200, 200, 200,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main .adminIcon{
+    width: 60%;
+    margin: 10% 0;
+}
+
+main #adminContent .sectionWrap h1{
+    text-align: center;
+    height: 100%;
+    font-size: 20px;
+    word-wrap: break-word;
+    margin: 0;
+    padding: 5px 0;
+    color: white;
+}
+
+main #adminContent .headWrap{
+    margin: 10px 10% 0 0;
+    border-radius: 5px;
+    background-color: #d1d1d1;
+    display: flex;
+    justify-content: center;
+}
+
+main .userWrap{
+    background:linear-gradient(to bottom, white 0%, #f1f1f1 100%);
+    border-radius: 5px;
+    margin: 5px auto;
+}
+
+main #objectsWrap {
+    padding: 5%;
+}
+
+main .adminButton{
+    font-size: 35px;
+}
+
+form input{
+    font-family: Avenir,sans-serif;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 1%;
+    width: 95%;
+    max-width: 200px;
+    height: 30px;
+    border: 1px solid #d1d1d1;
+    padding-left: 5px;
+    font-size: 14px;
+    display: block;
+}
+form input::placeholder{
+    color: lightgrey;
+}
+form input:hover{
+    border-color: #ededed;
+}
+form label{
+    margin: 0;
+    text-align: center;
+}

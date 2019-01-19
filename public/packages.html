@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">    <link rel='icon' href='./Images/favicon.png' type='image/x-icon'>
+    <title>MakeUp | Book hair and makeup artists</title>
+</head>
+<body>
+<header>
+    <div class="icons">
+        <button id="signInBtn" class="hover">Sign in <i class="fa fa-sign-in"></i></button>
+    </div>
+    <nav class="navbar navbar-expand-md fixed-top navbar-light">
+        <a class="navbar-brand mx-auto" href="index.html"><img src="./Images/Logo.png" alt="Makeup logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarDropdown" aria-controls="navbarDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item" id="bookBlock">
+                    <a class="nav-link" id="bookLink" href="#">Book</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <p class="nav-link hover dropdown-toggle" id="navbarDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Packages
+                    </p>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenu">
+                        <a class="dropdown-item hover" href="packages.html" id="packagesDrop1">Hair</a>
+                        <a class="dropdown-item hover" href="packages.html" id="packagesDrop2">Make Up</a>
+                        <a class="dropdown-item hover" href="packages.html" id="packagesDrop3">Nails</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <div id="packagesPageContent" class="container-fluid">
+        <div id="packagesImageHeader">
+            <img src="./Images/hairBanner.jpg" alt="Hair banner">
+            <img src="./Images/makeupBanner.jpg" alt="Make Up banner">
+            <img src="./Images/nailsBanner.jpg" alt="Nails banner">
+        </div>
+        <ul class="nav nav-tabs" role="tablist" id="tabList">
+            <li class="nav-item" id="tab1">
+                <a class="nav-link" href="#hairTab" role="tab" data-toggle="tab">Hair</a>
+            </li>
+            <li class="nav-item" id="tab2">
+                <a class="nav-link" href="#makeupTab" role="tab" data-toggle="tab">Make Up</a>
+            </li>
+            <li class="nav-item" id="tab3">
+                <a class="nav-link" href="#nailsTab" role="tab" data-toggle="tab">Nails</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade container-fluid" id="hairTab">
+                <div class="row">
+                    <h1>Hair</h1>
+                </div>
+                <div class="row tabContentPanel1">
+                    <div class="col-12 col-md-4">
+                        <img src="./Images/hairImage.jpg" alt="Hair Style Image">
+                    </div>
+                    <div class="col-12 col-md-8 tabDesc">
+                        <div class="packageDescWrapper">
+                            <p>Professional blow dry services in the comfort of your own home, office or hotel. Choose from three fabulous styles on our looks menu - from sleek and bouncy to laid back and textured. Our hairdressers specialise in blow dry treatments so you can expect an unrivalled and unbeatable service.</p>
+                            <button class="findOutMore hover">FIND OUT MORE</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row tabContentPanel2">
+                    <div class="col-12 col-md-4 option">
+                        <div class="optionWrapper">
+                            <div class="optionLabelWrapper">
+                                <img class="dot" src="./Images/dot1.png" alt="Option 1">
+                            </div>
+                            <h2 class="optionHeader">Textured Updo</h2>
+                            <div class="optionImgWrapper">
+                                <img src="./Images/updoOption.jpg" alt="Updo Hairstyle">
+                            </div>
+                            <div class="optionTextWrapper">
+                                <p>From elegant to undone, our stylists will create the perfect updo for you.</p>
+                            </div>
+                        </div>
+                        <button class="hover book">BOOK</button>
+                    </div>
+                    <div class="col-12 col-md-4 option">
+                        <div class="optionWrapper">
+                            <div class="optionLabelWrapper">
+                                <img class="dot" src="./Images/dot2.png" alt="Option 2">
+                            </div>
+                            <h2 class="optionHeader">Sleek blow-dry</h2>
+                            <div class="optionImgWrapper">
+                                <img src="./Images/sleekOption.jpg" alt="Sleek Hairstyle">
+                            </div>
+                            <div class="optionTextWrapper">
+                                <p>From big and bouncy to super sleek, there's a style to suit everyone!</p>
+                            </div>
+                        </div>
+                        <button class="hover book">BOOK</button>
+                        <i class="hover fa fa-chevron-up d-none d-md-block"></i>
+                    </div>
+                    <div class="col-12 col-md-4 option">
+                        <div class="optionWrapper">
+                            <div class="optionLabelWrapper">
+                                <img class="dot" src="./Images/dot3.png" alt="Option 3">
+                            </div>
+                            <h2 class="optionHeader">Insane curls</h2>
+                            <div class="optionImgWrapper">
+                                <img src="./Images/curlOption.jpg" alt="Wavey Hairstyle">
+                            </div>
+                            <div class="optionTextWrapper">
+                                <p>Whether it's gorgeous beachy curls or A-list finger waves, they are just a tap away!</p>
+                            </div>
+                        </div>
+                        <button class="hover book">BOOK</button>
+                        <i class="hover fa fa-chevron-up d-block d-md-none"></i>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane fade container-fluid" id="makeupTab">
+                <div class="row">
+                    <h1>Make Up</h1>
+                </div>
+                <div class="row tabContentPanel1">
+                    <div class="col-12 col-md-4">
+                        <img src="./Images/makeupImage.jpg" alt="Makeup Image">
+                    </div>
+                    <div class="col-12 col-md-8 tabDesc">
+                        <div class="packageDescWrapper">
+                            <p>Want a smokey eye or a bold lip? Choose from three fast and fabulous looks on our makeup menu. Or if you have a specific look in mind you can go bespoke! Our mobile makeup artists are some of the best around and only use top-rated tools and products, to ensure you'll look amazing!</p>
+                            <button class="findOutMore hover">FIND OUT MORE</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row tabContentPanel2">
+                    <div class="col-12 col-md-4 option">
+                        <div class="optionWrapper">
+                            <div class="optionLabelWrapper">
+                                <img class="dot" src="./Images/dot1.png" alt="Option 1">
+                            </div>
+                            <h2 class="optionHeader">Natural touch-up</h2>
+                            <div class="optionImgWrapper">
+                                <img src="./Images/naturalOption.png" alt="Natural makeup look">
+                            </div>
+                            <div class="optionTextWrapper">
+                                <p>Unleash your inner goddess! This natural look will leave you glowing from within.</p>
+                            </div>
+                        </div>
+                        <button class="hover book">BOOK</button>
+                    </div>
+                    <div class="col-12 col-md-4 option">
+                        <div class="optionWrapper">
+                            <div class="optionLabelWrapper">
+                                <img class="dot" src="./Images/dot2.png" alt="Option 2">
+                            </div>
+                            <h2 class="optionHeader">Vibrant</h2>
+                            <div class="optionImgWrapper">
+                                <img src="./Images/colorOption.jpg" alt="Colourful makeup look">
+                            </div>
+                            <div class="optionTextWrapper">
+                                <p>Intricate designs are no match for our experts. Add some pizazz to your look.</p>
+                            </div>
+                        </div>
+                        <button class="hover book">BOOK</button>
+                        <i class="hover fa fa-chevron-up d-none d-md-block"></i>
+                    </div>
+                    <div class="col-12 col-md-4 option">
+                        <div class="optionWrapper">
+                            <div class="optionLabelWrapper">
+                                <img class="dot" src="./Images/dot3.png" alt="Option 3">
+                            </div>
+                            <h2 class="optionHeader">Classic glam</h2>
+                            <div class="optionImgWrapper">
+                                <img src="./Images/classicOption.jpg" alt="Classic makeup look">
+                            </div>
+                            <div class="optionTextWrapper">
+                                <p>Starring a bold lip and smokey eye. Go full hollywood with this sultry glam look.</p>
+                            </div>
+                        </div>
+                        <button class="hover book">BOOK</button>
+                        <i class="hover fa fa-chevron-up d-block d-md-none"></i>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane fade container-fluid" id="nailsTab">
+                <div class="row">
+                    <h1>Nails</h1>
+                </div>
+                <div class="row tabContentPanel1">
+                    <div class="col-12 col-md-4">
+                        <img src="./Images/nailPolish.jpg" alt="Nail polish">
+                    </div>
+                    <div class="col-12 col-md-8 tabDesc">
+                        <div class="packageDescWrapper">
+                            <p>Book a mobile nail technician and enjoy a professional pedicure or manicure in the comfort of your own home. Whether you'd like a classic, gel or chrome manicure, or are in need of the perfect pedi. You’ll have red carpet-worthy nails in record time. There are a whole host of on-trend colours to choose between!</p>
+                            <button class="findOutMore hover">FIND OUT MORE</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row tabContentPanel2">
+                    <div class="col-12 col-md-4 option">
+                        <div class="optionWrapper">
+                            <div class="optionLabelWrapper">
+                                <img class="dot" src="./Images/dot1.png" alt="Option 1">
+                            </div>
+                            <h2 class="optionHeader">Block colour</h2>
+                            <div class="optionImgWrapper">
+                                <img src="./Images/rainbowOption.jpg" alt="Block coloured nails">
+                            </div>
+                            <div class="optionTextWrapper">
+                                <p>Choose from over 40 unique tones to personalise your look!</p>
+                            </div>
+                        </div>
+                        <button class="hover book">BOOK</button>
+                    </div>
+                    <div class="col-12 col-md-4 option">
+                        <div class="optionWrapper">
+                            <div class="optionLabelWrapper">
+                                <img class="dot" src="./Images/dot2.png" alt="Option 2">
+                            </div>
+                            <h2 class="optionHeader">Perfect nude</h2>
+                            <div class="optionImgWrapper">
+                                <img src="./Images/nudeOption.jpg" alt="Natural nail colour">
+                            </div>
+                            <div class="optionTextWrapper">
+                                <p>Add a little elegance! We will match your unique nude - your nails but better!</p>
+                            </div>
+                        </div>
+                        <button class="hover book">BOOK</button>
+                        <i class="hover fa fa-chevron-up d-none d-md-block"></i>
+                    </div>
+                    <div class="col-12 col-md-4 option">
+                        <div class="optionWrapper">
+                            <div class="optionLabelWrapper">
+                                <img class="dot" src="./Images/dot3.png" alt="Option 3">
+                            </div>
+                            <h2 class="optionHeader">Quirky</h2>
+                            <div class="optionImgWrapper">
+                                <img src="./Images/quirkyOption.jpg" alt="Quirky nail colours">
+                            </div>
+                            <div class="optionTextWrapper">
+                                <p>Go bespoke! Cute and quirky is back in a BIG way - unleash your inner queen.</p>
+                            </div>
+                        </div>
+                        <button class="hover book">BOOK</button>
+                        <i class="hover fa fa-chevron-up d-block d-md-none"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container-fluid">
+        <div id="pressBanner" class="row d-none d-sm-flex">
+            <div class="col-6 col-lg-3">
+                <img src="./Images/cosmo.png" alt="Cosmopolitan logo">
+            </div>
+            <div class="col-6 col-lg-3">
+                <img src="./Images/marie.png" alt="Marie Claire logo">
+            </div>
+            <div class="col-6 col-lg-3">
+                <img src="./Images/ref29.png" alt="Refinery29 logo">
+            </div>
+            <div class="col-6 col-lg-3">
+                <img src="./Images/forbes.png" alt="Forbes logo">
+            </div>
+        </div>
+        <div id="socialMediaIcons" class="row">
+            <a href="https://www.facebook.com/" target="_blank" class="hover fa fa-facebook"></a>
+            <a href="https://www.twitter.com/" target="_blank" class="hover fa fa-twitter"></a>
+            <a href="https://www.instagram.com/" target="_blank" class="hover fa fa-instagram"></a>
+        </div>
+    </div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script type="text/javascript" src="./Scripts/script.js"></script>
+</body>
+</html>
