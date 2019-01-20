@@ -4,7 +4,7 @@ const app = express();
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 
-let people = [{"username":"doctorwhocomposer", "forename":"Delia", "surname":"Derbyshire", "password":"delia123"},{"username":"annab3ll", "forename":"Anna", "surname":"Carenthos", "password":"annasWorld"}];
+let people = [{"username":"doctorwhocomposer", "forename":"Delia", "surname":"Derbyshire", "password":"delia123"},{"username":"annab3ll", "forename":"Anna", "surname":"Carenthos", "password":"annasWorld"},{"username":"catVonD", "forename":"Caterina", "surname":"Soors", "password":"cats2Cute"}];
 
 //routes
 app.get('/people', function(req, res){

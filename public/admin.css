@@ -60,22 +60,36 @@ main .adminIcon{
     margin: 10% 0;
 }
 
+main .userIconWrap{
+    padding:0;
+    margin:0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main .userIcon{
+    width: 70%;
+    margin-left:30%;
+    min-width: 25px;
+    border-radius: 20%;
+}
+
 main #adminContent .sectionWrap h1{
     text-align: center;
     height: 100%;
-    font-size: 20px;
+    font-size: 18px;
     word-wrap: break-word;
     margin: 0;
     padding: 5px 0;
     color: white;
+    font-weight: bold;
 }
 
 main #adminContent .headWrap{
     margin: 10px 10% 0 0;
     border-radius: 5px;
     background-color: #d1d1d1;
-    display: flex;
-    justify-content: center;
 }
 
 main .userWrap{
@@ -84,12 +98,30 @@ main .userWrap{
     margin: 5px auto;
 }
 
+
+
 main #objectsWrap {
     padding: 5%;
 }
 
-main .adminButton{
-    font-size: 35px;
+
+main .chevron{
+    font-size: 16px;
+    color: #d8d8d8;
+}
+
+main .userWrap .row {
+    width: 100%;
+    margin: auto;
+    color: #7a7a7a;
+    align-items: center;
+    font-size: 14px;
+}
+
+main .userWrap .userField{
+    text-transform: capitalize;
+    font-size: 12px;
+    color: black;
 }
 
 form input{
@@ -114,4 +146,10 @@ form input:hover{
 form label{
     margin: 0;
     text-align: center;
+}
+
+.hover:hover{
+    opacity: 0.5;
+    cursor: pointer;
+    text-decoration: none;
 }
