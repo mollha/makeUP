@@ -129,7 +129,6 @@ form input{
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 1%;
-    width: 95%;
     max-width: 200px;
     height: 30px;
     border: 1px solid #d1d1d1;
@@ -152,4 +151,12 @@ form label{
     opacity: 0.5;
     cursor: pointer;
     text-decoration: none;
+}
+
+.userWrap input{
+    display: initial;
+    width: 90%;
+    margin: 5px 0;
+    border: none;
+    background: none;
 }

@@ -1,15 +1,81 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const peep = require('./routes/people');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use('/bird', peep);
 
-let people = [{"username":"doctorwhocomposer", "forename":"Delia", "surname":"Derbyshire", "password":"delia123"},{"username":"annab3ll", "forename":"Anna", "surname":"Carenthos", "password":"annasWorld"},{"username":"catVonD", "forename":"Caterina", "surname":"Soors", "password":"cats2Cute"}];
+let people = [
+    {
+        "username":"doctorwhocomposer",
+        "forename":"Delia",
+        "surname":"Derbyshire",
+        "password":"delia123"},
+    {
+        "username":"annab3ll",
+        "forename":"Anna",
+        "surname":"Carenthos",
+        "password":"annasWorld"},
+    {
+        "username":"catVonD",
+        "forename":"Caterina",
+        "surname":"Soors",
+        "password":"cats2Cute"}
+    ];
+
+let packages = [
+    {
+        "nails": [
+            {
+                "style": "Block colour",
+                "duration": "20 minutes",
+                "cost": "45"},
+            {
+                "style": "Perfect nude",
+                "duration": "25 minutes",
+                "cost": "50"},
+            {
+                "style": "Quirky",
+                "duration": "40 minutes",
+                "cost": "60"}
+        ]},
+    {
+        "hair": [
+            {
+                "style": "Textured updo",
+                "duration": "30 minutes",
+                "cost": "70"},
+            {
+                "style": "Sleek blow-dry",
+                "duration": "15 minutes",
+                "cost": "50"},
+            {
+                "style": "Insane curls",
+                "duration": "20 minutes",
+                "cost": "60"}
+        ]},
+    {
+        "makeup": [
+            {
+                "style": "Natural touch-up",
+                "duration": "50 minutes",
+                "cost": "90"},
+            {
+                "style": "Vibrant",
+                "duration": "55 minutes",
+                "cost": "110"},
+            {
+                "style": "Classic glam",
+                "duration": "1 hour",
+                "cost": "120"}
+        ]}
+]
+
+
 
 //routes
-app.get('/people', function(req, res){
-    res.send(people);
-});
+
 
 app.get('/people/:username', function(req, res){
     let success = false;

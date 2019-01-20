@@ -13,8 +13,8 @@ $("#objectsWrap").on('click', '.userWrap .chevron', function(){
             function (user) {
                 $(section).append(
                     '<div class="row extraDetails">' +
-                    '<div class="col userField" id="forenameCol"><input>' + user.forename + '</input></div>' +
-                    '<div class="col userField" id="surnameCol">' + user.surname + '</div>' +
+                    '<div class="col userField" id="forenameCol"><input id="forenameVal" value="'+user.forename+'"></input></div>' +
+                    '<div class="col userField" id="surnameCol"><input id="surnameVal" value="'+user.surname+'"></input></div>' +
                     '<div class="col userField" id="passwordCol"></div>' +
                     '</div>'
                 );
