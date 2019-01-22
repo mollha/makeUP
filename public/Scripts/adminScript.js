@@ -13,8 +13,8 @@ $("#objectsWrap").on('click', '.userWrap .chevron', function(){
             function (user) {
                 $(section).append(
                     '<div class="row extraDetails">' +
-                    '<div class="col userField" id="forenameCol"><input id="forenameVal" value="'+user.forename+'"></input></div>' +
-                    '<div class="col userField" id="surnameCol"><input id="surnameVal" value="'+user.surname+'"></input></div>' +
+                    '<div class="col userField" id="forenameCol"><label for="forename">Forename</label><input id="forename" value="'+user.forename+'"></div>' +
+                    '<div class="col userField" id="surnameCol"><label for="surname">Surname</label><input id="surname" value="'+user.surname+'"></div>' +
                     '<div class="col userField" id="passwordCol"></div>' +
                     '</div>'
                 );
@@ -23,7 +23,8 @@ $("#objectsWrap").on('click', '.userWrap .chevron', function(){
     }
     });
 
-function ok() {
+
+function loadUsers() {
     $.get("/people",
         function (data) {
             for (let user in data) {
@@ -47,24 +48,19 @@ function ok() {
         });
 
 }
+loadUsers();
 
-/*
-        $('#objectsWrap').append(
-            '<div class="usersWrap">'+
-                '<div class="row userWrap">'+
-                    '<div class="col-3 col-md-2">'+
-                        '<img src="./Images/user.png" alt="User" class="adminIcon">'+
-                    '</div>'+
-                    '<div class="col-6 col-md-8">'+
-                        '<div class="headWrap">'+
-                            '<h1>Username</h1>'+
-                        '</div>'+
-                    '</div>'+
-                    '<div class="col-3 col-md-2">'+
-                        '<i class="fa fa-edit adminButton"></i>'+
-                    '</div>'+
-                '</div>'+
-            '</div>'+
-            );
-    */
-ok();
+$('#objectsWrap').on('change', '.userWrap input', function(){
+    let inputID = $(this).attr('id');
+    let newValue = $(this).val();
+    let usernameVal = $(this).parent().parent().parent().attr('id');
+    $.post('/people/'+usernameVal,
+            {
+            fieldName: inputID,
+            fieldVal: newValue,
+            username: usernameVal
+            },
+        function(response){
+            alert(response);
+        });
+});

@@ -33,6 +33,7 @@ main .sectionWrap{
     width: 95%;
     min-height: 100px;
     margin: 10px auto;
+    padding: 2% 0;
     background-color: white;
     border-radius: 5px;
     box-shadow: 0 0 15px rgba(200, 200, 200,0.8);
@@ -58,6 +59,15 @@ main #adminContent #adminWrap{
 main .adminIcon{
     width: 60%;
     margin: 10% 0;
+}
+
+.btn{
+    display: block;
+    text-transform: uppercase;
+    color: white;
+    background-color: #ff7865;
+    margin: 5% auto 5%;
+    padding: 1% 8%;
 }
 
 main .userIconWrap{
@@ -93,21 +103,18 @@ main #adminContent .headWrap{
 }
 
 main .userWrap{
-    background:linear-gradient(to bottom, white 0%, #f1f1f1 100%);
+    background:linear-gradient(to bottom, #f9f9f9 0%, #f1f1f1 100%);
     border-radius: 5px;
-    margin: 5px auto;
+    margin: 7px auto;
 }
-
-
 
 main #objectsWrap {
     padding: 5%;
 }
 
-
 main .chevron{
     font-size: 16px;
-    color: #d8d8d8;
+    color: #d4d4d4;
 }
 
 main .userWrap .row {
@@ -142,15 +149,19 @@ form input::placeholder{
 form input:hover{
     border-color: #ededed;
 }
-form label{
-    margin: 0;
+label{
+    margin: 5px;
+    font-size: 14px;
+    text-transform: uppercase;
     text-align: center;
+    color: #7a7a7a;
 }
 
 .hover:hover{
     opacity: 0.5;
     cursor: pointer;
     text-decoration: none;
+    color: white;
 }
 
 .userWrap input{

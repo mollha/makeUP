@@ -148,19 +148,13 @@ main #blurScreen{
     z-index: 1032;
 }
 main #bookingScreen{
-    width:550px;
-    height:600px;
-    top: 50%;
-    left: 50%;
-    margin-top: -300px; /* Negative half of height. */
-    margin-left: -275px; /* Negative half of width. */
-    position: fixed;
-    z-index: 1033;
+    width:100%;
+    margin: 0 auto;
     border-radius: 4px;
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
-    background: url("./Images/booking-bg.png");
+    background: url("../Images/booking-bg.png");
 }
 main #signUpScreen{
     max-width: 500px;
@@ -176,7 +170,7 @@ main #signUpScreen{
     border-radius: 4px;
     justify-content: center;
     align-items: center;
-    background: url("./Images/booking-bg.png");
+    background: url("../Images/booking-bg.png");
     text-align: initial;
 }
 
@@ -194,7 +188,6 @@ main #signInScreen{
     display: none;
     background-color: white;
 }
-
 main #signInScreen #signInImage{
     display: block;
     margin: 20px auto 10px;
@@ -203,43 +196,39 @@ main #signInScreen #signInImage{
 main #signInScreen #signInForm label{
     margin-top: 10px;
 }
-
 main #signInScreen p{
     color: maroon;
     text-transform: initial;
     font-size: 12px;
 }
-
 main .formWrapper{
-    width:90%;
+    width:60%;
     height:90%;
-    margin: 5% 0;
+    margin: 2% 0;
+    box-shadow: 0 0 20px rgba(100, 100, 100,0.5);
     border-radius: 4px;
     background-color: white;
 }
-
 main #bookingScreen .close, main #signInScreen .close{
     font-size: 28px;
 }
-
 main #bookingScreen .formWrapper #bookUpImage, main #signUpScreen .formWrapper #signUpImage{
     display: block;
-    margin: 20px auto 30px;
-    width: 50%;
+    margin: 3% auto 0;
+    width: 30%;
 }
-
-#bookingScreen .formWrapper #bookingForm{
+main #bookingScreen .formWrapper #bookingForm{
     font-size: 18px;
     color: #555555;
 }
 
-form input{
+form input, form select{
     font-family: Avenir,sans-serif;
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 1%;
     width: 95%;
-    max-width: 200px;
+    max-width: 150px;
     height: 30px;
     border: 1px solid #d1d1d1;
     padding-left: 5px;
@@ -253,11 +242,11 @@ form input:hover{
     border-color: #ededed;
 }
 form label{
-    margin: 0;
+    padding-top: 10px;
     text-align: center;
 }
 
-#bookingScreen #bookingFormWrapper #bookingForm .btn, #signInScreen #signInForm .btn, #signUpScreen #signUpForm .btn{
+.btn{
     display: block;
     text-transform: uppercase;
     color: white;
@@ -265,9 +254,7 @@ form label{
     margin: 5% auto 5%;
     padding: 1% 8%;
 }
-.form-check-inline{
-    margin: 5px 25%;
-}
+
 
 #bookingForm #packageSelectHeader p{
     text-align: center;
@@ -442,3 +429,113 @@ footer .fa{
     text-decoration: none;
 }
 
+form input{
+    font-family: Avenir,sans-serif;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 5%;
+    width: 95%;
+    max-width: 200px;
+    height: 30px;
+    border: 1px solid #d1d1d1;
+    padding-left: 5px;
+    font-size: 14px;
+    display: block;
+}
+
+form input::placeholder{
+    color: lightgrey;
+}
+
+form input:hover{
+    border-color: #ededed;
+}
+
+form label{
+    margin: 2% 0;
+    width: 100%;
+    text-align: center;
+}
+
+#bookingScreen #bookingFormWrapper #bookingForm .btn, #signInScreen #signInForm .btn, #signUpScreen #signUpForm .btn{
+    display: block;
+    text-transform: uppercase;
+    color: white;
+    background-color: #ff7865;
+    margin: 5% auto 5%;
+    padding: 1% 8%;
+}
+.form-check-inline{
+    margin: 5px 25%;
+}
+
+#bookingForm #packageSelectHeader p{
+    text-align: center;
+    width:40%;
+    margin-bottom: 10px;
+    margin-left: 30%;
+    margin-right: 30%;
+    background-color: #ff7865;
+    color:white;
+    border-radius: 5px;
+}
+
+#bookingScreen .packageItem{
+    background:linear-gradient(to bottom,#efefef 1%, #fbfbfb 85%, #efefef 100%);
+    padding: 2%;
+}
+
+#bookingScreen .packageDescriptionContainer{
+    background: white;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-align: right;
+}
+
+.packageIcon{
+    width: 30%;
+    min-width: 30px;
+    margin: 10% 0;
+}
+
+.packageWrapper{
+    display: flex;
+    justify-content: center;
+}
+
+.packageItem{
+    width: 90%;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+
+.packageHead{
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 5px auto;
+    height: 40px;
+    background: white;
+}
+
+.packageAdd{
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    width: 90%;
+    margin: 5px auto;
+    height: 40px;
+    background:linear-gradient(to bottom,#efefef 1%, #fbfbfb 85%, #efefef 100%);
+}
+
+.packageAdd:hover{
+    background:linear-gradient(to bottom,#f9f9f9 1%, #fefefe 85%, #f9f9f9 100%);
+}
+
+.packageHead span{
+    color: #636363;
+    white-space: nowrap;
+    overflow: hidden;
+    border-radius: 5px;
+}

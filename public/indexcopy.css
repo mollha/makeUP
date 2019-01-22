@@ -220,7 +220,7 @@ main #bookingScreen .formWrapper #bookUpImage, main #signUpScreen .formWrapper #
     width: 50%;
 }
 
-#bookingScreen .formWrapper #bookingForm{
+main #bookingScreen .formWrapper #bookingForm{
     font-size: 18px;
     color: #555555;
 }

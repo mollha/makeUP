@@ -1,10 +1,10 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const app = express();
+const bodyParser = require('body-parser');
 const peep = require('./routes/people');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use('/bird', peep);
+app.use('/', peep);
 
 let people = [
     {
@@ -24,58 +24,76 @@ let people = [
         "password":"cats2Cute"}
     ];
 
-let packages = [
+let packages =
     {
-        "nails": [
+        nails: [
             {
-                "style": "Block colour",
-                "duration": "20 minutes",
-                "cost": "45"},
+                style: "Block colour",
+                time: "20 minutes",
+                cost: "45"
+            },
             {
-                "style": "Perfect nude",
-                "duration": "25 minutes",
-                "cost": "50"},
+                style: "Perfect nude",
+                time: "25 minutes",
+                cost: "50"
+            },
             {
-                "style": "Quirky",
-                "duration": "40 minutes",
-                "cost": "60"}
-        ]},
-    {
-        "hair": [
+                style: "Quirky",
+                time: "40 minutes",
+                cost: "60"
+            }
+        ],
+        hair: [
             {
-                "style": "Textured updo",
-                "duration": "30 minutes",
-                "cost": "70"},
+                style: "Textured updo",
+                time: "30 minutes",
+                cost: "70"
+            },
             {
-                "style": "Sleek blow-dry",
-                "duration": "15 minutes",
-                "cost": "50"},
+                style: "Sleek blow-dry",
+                time: "15 minutes",
+                cost: "50"
+            },
             {
-                "style": "Insane curls",
-                "duration": "20 minutes",
-                "cost": "60"}
-        ]},
-    {
-        "makeup": [
+                style: "Insane curls",
+                time: "20 minutes",
+                cost: "60"
+            }
+        ],
+        makeup: [
             {
-                "style": "Natural touch-up",
-                "duration": "50 minutes",
-                "cost": "90"},
+                style: "Natural touch-up",
+                time: "50 minutes",
+                cost: "90"
+            },
             {
-                "style": "Vibrant",
-                "duration": "55 minutes",
-                "cost": "110"},
+                style: "Vibrant",
+                time: "55 minutes",
+                cost: "110"
+            },
             {
-                "style": "Classic glam",
-                "duration": "1 hour",
-                "cost": "120"}
-        ]}
-]
-
+                style: "Classic glam",
+                time: "1 hour",
+                cost: "120"
+            }
+        ]
+    }
 
 
 //routes
 
+app.get('/people', function(req, res){
+    res.send(people);
+});
+
+app.get('/packages', function(req, res){
+    console.log(packages.keys());
+    res.send(packages);
+});
+
+app.get('/packages/:item', function(req, res){
+    res.send(packages[req.params.item]);
+});
 
 app.get('/people/:username', function(req, res){
     let success = false;
@@ -90,14 +108,20 @@ app.get('/people/:username', function(req, res){
     }
 });
 
-app.get('/packages.html/:section', function(req, res) {
-    res.send(req.params.section);
-});
-
 app.post('/people', function(req, res){
     people.push(req.body);
     res.send("request to include new person called " + req.body.forename);
     console.log(people)
+});
+
+app.post('/people/:username', function(req, res) {
+    const username = req.body.username;
+    for(let person in people){
+        if (username === people[person].username) {
+            people[person][req.body.fieldName] = req.body.fieldVal;
+            res.send(people[person]);
+        }
+    }
 });
 
 app.post('/login', function(req, res){

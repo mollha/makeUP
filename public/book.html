@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="Styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">    <link rel='icon' href='./Images/favicon.png' type='image/x-icon'>
+    <title>MakeUp | Book hair and makeup artists</title>
+</head>
+<body>
+<header>
+    <div class="icons">
+        <button id="signInBtn" class="hover">Sign in <i class="fa fa-sign-in"></i></button>
+    </div>
+    <nav class="navbar navbar-expand-md fixed-top navbar-light">
+        <a class="navbar-brand mx-auto" href="index.html"><img src="./Images/Logo.png" width="150px" alt="Makeup logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarDropdown" aria-controls="navbarDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item" id="bookBlock">
+                    <a class="nav-link" id="bookLink">Book</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <p class="nav-link hover dropdown-toggle" id="navbarDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Packages
+                    </p>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenu">
+                        <a class="dropdown-item hover" href="packages.html" id="packagesDrop1">Hair</a>
+                        <a class="dropdown-item hover" href="packages.html" id="packagesDrop2">Make Up</a>
+                        <a class="dropdown-item hover" href="packages.html" id="packagesDrop3">Nails</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <div id="bookingScreen" class="container-fluid">
+        <div class="container-fluid formWrapper">
+            <div class="row">
+                <div class="col-12">
+                    <img src="./Images/Bookup.png" alt="Book up" id="bookUpImage">
+                </div>
+            </div>
+            <form id="bookingForm" action ="/">
+                <div class="row" id="userDetails">
+                    <div class="col-sm-4">
+                        <label for="forename">Forename</label>
+                        <input id="forename" class=".form-field name" type="text" placeholder="e.g. Ariana">
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="surname">Surname</label>
+                        <input id="surname" class=".form-field name" type="text" placeholder="e.g. Grande">
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="username">Username</label>
+                        <input id="username" class=".form-field" type="text" placeholder="e.g. thankUNext">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <hr>
+                    </div>
+                </div>
+                <div class="row" id="packageSection">
+                    <div class="col">
+                        <div class="row packageWrapper">
+                            <div class="packageItem select">
+                            <div class="row packageHead">
+                                <div class="col-2">
+                                    <img src="./Images/booking.png" class="packageIcon" alt="Package icon">
+                                </div>
+                                <div class="col-10 packageTitle">
+                                    <span>Select Package</span>
+                                </div>
+                            </div>
+                            <div class="row packageBody">
+                                <form>
+                                    <div class="col-sm-4">
+                                        <label for='packages'>Package</label>
+                                        <select name="packages" id="packages">
+                                            <option disabled selected value>- SELECT -</option>
+                                            <option value="hair">Hair</option>
+                                            <option value="makeup">Makeup</option>
+                                            <option value="nails">Nails</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <label for='styles'>Style</label>
+                                        <select name="cars" id="styles">
+                                            <option disabled selected value>- SELECT -</option>
+                                        </select>
+                                    </div>
+                                </form>
+                                <div class="col-sm-4">
+                                    <div class="packageDescriptionContainer">
+                                        <div class="row">
+                                            <div class="col">
+                                                <span>Cost:</span>
+                                            </div>
+                                            <div class="col">
+                                                <span class="cost"></span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <span>Time:</span>
+                                            </div>
+                                            <div class="col">
+                                                <span class="time"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="row">
+                            <div class="row packageAdd">
+                                <div class="col-2">
+                                    <img src="./Images/addBooking.png" class="packageIcon" alt="Package icon">
+                                </div>
+                                <div class="col-10 packageTitle">
+                                    <span>Add Package</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn hover book">Book</button>
+            </form>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container-fluid">
+        <div id="pressBanner" class="row d-none d-sm-flex">
+            <div class="col-6 col-lg-3">
+                <img src="./Images/cosmo.png" alt="Cosmopolitan logo">
+            </div>
+            <div class="col-6 col-lg-3">
+                <img src="./Images/marie.png" alt="Marie Claire logo">
+            </div>
+            <div class="col-6 col-lg-3">
+                <img src="./Images/ref29.png" alt="Refinery29 logo">
+            </div>
+            <div class="col-6 col-lg-3">
+                <img src="./Images/forbes.png" alt="Forbes logo">
+            </div>
+        </div>
+        <div id="socialMediaIcons" class="row">
+            <a href="https://www.facebook.com/" target="_blank" class="hover fa fa-facebook"></a>
+            <a href="https://www.twitter.com/" target="_blank" class="hover fa fa-twitter"></a>
+            <a href="https://www.instagram.com/" target="_blank" class="hover fa fa-instagram"></a>
+        </div>
+    </div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script type="text/javascript" src="./Scripts/script.js"></script>
+
+<script>
+    $('main #bookingScreen .name').change(function(){
+        const field = $(this);
+        if(field.val()){
+            correctField(field);
+        }
+        else{
+            incorrectField(field);
+        }
+    });
+
+    function correctField(field){
+        $(field).css("box-shadow", "0 0 3px rgb(0, 255, 63)");
+    }
+
+    function incorrectField(field){
+        $(field).css("box-shadow", "0 0 5px rgb(255, 0, 0)");
+    }
+</script>
+
+</body>
+</html>
