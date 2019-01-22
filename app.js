@@ -87,7 +87,7 @@ app.get('/people', function(req, res){
 });
 
 app.get('/packages', function(req, res){
-    console.log(packages.keys());
+    console.log(packages);
     res.send(packages);
 });
 
@@ -154,7 +154,6 @@ function getUser(username){
     return false;
 }
 
-console.log(people);
 //make it accessible
 //re watch stevens last lecture before making video demonstration
 

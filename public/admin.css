@@ -148,6 +148,7 @@ form input::placeholder{
 }
 form input:hover{
     border-color: #ededed;
+    display: block;
 }
 label{
     margin: 5px;
@@ -170,4 +171,8 @@ label{
     margin: 5px 0;
     border: none;
     background: none;
+}
+
+#addPackage{
+    text-align: center;
 }

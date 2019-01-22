@@ -235,6 +235,9 @@ form input, form select{
     font-size: 14px;
     display: block;
 }
+form select{
+    text-transform: capitalize;
+}
 form input::placeholder{
     color: lightgrey;
 }
@@ -531,6 +534,7 @@ form label{
 
 .packageAdd:hover{
     background:linear-gradient(to bottom,#f9f9f9 1%, #fefefe 85%, #f9f9f9 100%);
+    cursor: pointer;
 }
 
 .packageHead span{

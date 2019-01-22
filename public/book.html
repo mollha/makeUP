@@ -83,17 +83,14 @@
                             <div class="row packageBody">
                                 <form>
                                     <div class="col-sm-4">
-                                        <label for='packages'>Package</label>
-                                        <select name="packages" id="packages">
+                                        <label>Package</label>
+                                        <select name="packages" class="packages">
                                             <option disabled selected value>- SELECT -</option>
-                                            <option value="hair">Hair</option>
-                                            <option value="makeup">Makeup</option>
-                                            <option value="nails">Nails</option>
                                         </select>
                                     </div>
                                     <div class="col-sm-4">
-                                        <label for='styles'>Style</label>
-                                        <select name="cars" id="styles">
+                                        <label>Style</label>
+                                        <select name="styles" class="styles">
                                             <option disabled selected value>- SELECT -</option>
                                         </select>
                                     </div>
@@ -121,6 +118,7 @@
                             </div>
                         </div>
                         </div>
+                        <div id="extraPackage"></div>
                         <div class="row">
                             <div class="row packageAdd">
                                 <div class="col-2">
@@ -166,27 +164,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-<script type="text/javascript" src="./Scripts/script.js"></script>
-
-<script>
-    $('main #bookingScreen .name').change(function(){
-        const field = $(this);
-        if(field.val()){
-            correctField(field);
-        }
-        else{
-            incorrectField(field);
-        }
-    });
-
-    function correctField(field){
-        $(field).css("box-shadow", "0 0 3px rgb(0, 255, 63)");
-    }
-
-    function incorrectField(field){
-        $(field).css("box-shadow", "0 0 5px rgb(255, 0, 0)");
-    }
-</script>
+<script type="text/javascript" src="./Scripts/bookScript.js"></script>
 
 </body>
 </html>

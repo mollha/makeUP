@@ -184,37 +184,5 @@ $(document).ready()
         return false;
     });
 
-    $("main #bookingScreen #packages").change(function(){
-       const packageName = $(this).val();
-        $('#bookingScreen #styles').empty();
-        $('#bookingScreen #styles').append(
-            '<option disabled selected value>- SELECT -</option>'
-        );
-        $.get("/packages/" + packageName,
-            function (response) {
-                for(let styleName in response){
-                    let style = response[styleName].style;
-                    $('#bookingScreen #styles').append(
-                        '<option class="remove" value="'+style+'">'+style+'</option>'
-                    );
-                }
-            });
-    });
-
-    $("main #bookingScreen #styles").change(function(){
-        const edit = $(this).parent().parent().parent().find('.packageDescriptionContainer');
-        const styleName = $(this).val();
-        const packageName = $("main #bookingScreen #packages").val();
-        $.get("/packages/" + packageName,
-            function (response) {
-                for(let style in response){
-                    if(response[style].style === styleName){
-                        $(edit).find('.cost').html(response[style].cost);
-                        $(edit).find('.time').html(response[style].time);
-                    }
-                }
-            });
-    });
-
 
 }
