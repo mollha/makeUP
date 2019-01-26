@@ -17,51 +17,51 @@ let packages =
         nails: [
             {
                 style: "Block colour",
-                time: "20 minutes",
+                time: "20",
                 cost: "45"
             },
             {
                 style: "Perfect nude",
-                time: "25 minutes",
+                time: "25",
                 cost: "50"
             },
             {
                 style: "Quirky",
-                time: "40 minutes",
+                time: "40",
                 cost: "60"
             }
         ],
         hair: [
             {
                 style: "Textured updo",
-                time: "30 minutes",
+                time: "30",
                 cost: "70"
             },
             {
                 style: "Sleek blow-dry",
-                time: "15 minutes",
+                time: "15",
                 cost: "50"
             },
             {
                 style: "Insane curls",
-                time: "20 minutes",
+                time: "20",
                 cost: "60"
             }
         ],
         makeup: [
             {
                 style: "Natural touch-up",
-                time: "50 minutes",
+                time: "50",
                 cost: "90"
             },
             {
                 style: "Vibrant",
-                time: "55 minutes",
+                time: "55",
                 cost: "110"
             },
             {
                 style: "Classic glam",
-                time: "1 hour",
+                time: "60",
                 cost: "120"
             }
         ]

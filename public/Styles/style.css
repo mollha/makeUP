@@ -46,7 +46,8 @@ header .navbar .nav-item{
     background-color: white;
 }
 header .navbar .nav-link{
-    margin: 20px 15px;
+    margin: 10px 15px;
+    padding: 18px 50px;
 }
 header .navbar #bookBlock{
     padding: 0 20px;
@@ -426,7 +427,7 @@ form input:hover{
 }
 
 form label{
-    margin: 2% 0;
+    margin: 5% 0 2%;
     width: 100%;
     text-align: center;
 }
@@ -460,16 +461,20 @@ form label{
 }
 
 #bookingScreen .packageDescriptionContainer{
-    background: white;
     border-radius: 5px;
-    margin-top: 10px;
+    margin-top: 20px;
+    font-size: 14px;
+    min-width: 110px;
     text-align: right;
 }
 
+#bookingScreen .packageDescriptionContainer .row{
+    margin-top: 5px;
+}
+
 .packageIcon{
-    width: 30%;
-    min-width: 30px;
-    margin: 10% 0;
+    width: 25px;
+    margin: 3% 0;
 }
 
 .packageWrapper{
@@ -498,8 +503,8 @@ form label{
     display: flex;
     align-items: center;
     width: 90%;
-    margin: 5px auto;
     height: 40px;
+    margin: 5px auto;
     background:linear-gradient(to bottom,#efefef 1%, #fbfbfb 85%, #efefef 100%);
 }
 
@@ -508,18 +513,29 @@ form label{
     cursor: pointer;
 }
 
-.packageHead span{
+.packageHead span, .packageAdd span{
     color: #636363;
     white-space: nowrap;
     overflow: hidden;
     border-radius: 5px;
+    font-size: 16px;
+    padding-left: 2%;
 }
 
-
-#bookingScreen #userDetails .feedback{
-    height: 20px;
+#bookingScreen #userDetails .feedback, #bookingScreen #errorMsg{
+    min-height: 20px;
     color: rgba(226, 0, 0, 0.6);
     font-size: 12px;
     text-align: center;
     text-transform: initial;
+}
+
+#bookingScreen .total .col:first-child span{
+    text-transform: initial;
+    margin-left: 10%;
+    padding: 0 5px;
+}
+
+#bookingScreen .btn{
+    margin-top: 0;
 }

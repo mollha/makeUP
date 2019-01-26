@@ -75,14 +75,17 @@ $('#modal').on('click', '#saveBtn',function(){
             username: usernameVal
         },
 );
+    $('#'+usernameVal+' #'+inputID).val(newValue);
 });
 
-$('#modal').on('click', '#closeBtn',function(){
+$('#modal').on('hide.bs.modal', function(){
     const usernameVal = $('#modal .modal-body').find('#usernameVal').html();
     const inputID = $('#modal .modal-body').find('#inputID').html();
     const oldValue = $('#modal .modal-body').find('#oldValue').html();
     $('#'+usernameVal+' #'+inputID).val(oldValue);
 });
+
+
 
 /*function(){
     $.ajax({

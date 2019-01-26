@@ -84,34 +84,34 @@
                                 </div>
                             </div>
                             <div class="row packageBody">
-                                <div class="col-sm-4">
+                                <div class="col-sm-6 col-md-4">
                                     <label>Package</label>
                                     <select name="packages" class="packages">
                                         <option disabled selected value>- SELECT -</option>
                                     </select>
                                 </div>
-                                <div class="col-sm-4">
+                                <div class="col-sm-6 col-md-4">
                                     <label>Style</label>
                                     <select name="styles" class="styles">
                                         <option disabled selected value>- SELECT -</option>
                                     </select>
                                 </div>
-                                <div class="col-sm-4">
+                                <div class="col-sm-6 col-md-4">
                                     <div class="packageDescriptionContainer">
                                         <div class="row">
                                             <div class="col">
-                                                <span>Cost:</span>
+                                                <span>Cost : </span>
                                             </div>
-                                            <div class="col">
-                                                <span class="cost"></span>
+                                            <div class="col" style="text-align: left">
+                                                <span style="padding-left: 5px; text-transform: initial;" class="cost"></span>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col">
-                                                <span>Time:</span>
+                                                <span>Time : </span>
                                             </div>
-                                            <div class="col">
-                                                <span class="time"></span>
+                                            <div class="col" style="text-align: left">
+                                                <span style="padding-left: 5px; text-transform: initial;" class="time"></span>
                                             </div>
                                         </div>
                                     </div>
@@ -130,6 +130,25 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="row" id="errorMsg">
+
+                </div>
+                <div class="row total">
+                    <div class="col">
+                        <span>Total time:</span>
+                    </div>
+                    <div class="col">
+                        <span class="totalTime"></span>
+                    </div>
+                </div>
+                <div class="row total">
+                    <div class="col">
+                        <span>Total cost:</span>
+                    </div>
+                    <div class="col">
+                        <span class="totalCost"></span>
                     </div>
                 </div>
                 <button type="submit" class="btn hover book">Book</button>

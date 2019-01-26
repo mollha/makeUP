@@ -4,18 +4,47 @@ $(document).ready();
         const field = $(this);
         const feedback = $(field).parent().find(".feedback");
         if(field.val()){
-            correctField(field);
-            field.addClass("true");
-            field.removeClass("false");
-            feedback.empty();
+            if(/^[a-zA-Z]+$/.test(field.val())){
+                correctField(field);
+            }
+            else{
+                incorrectField(field);
+                feedback.html($(field).parent().find("input").attr('id')+" field must only contain letters");
+            }
         }
         else{
             incorrectField(field);
-            field.addClass("false");
-            field.removeClass("true");
             feedback.html($(field).parent().find("input").attr('id')+" field cannot be blank");
         }
     });
+
+    $('main #bookingScreen #Username').change(function(){
+        const field = $(this);
+        const feedback = $(field).parent().find(".feedback");
+        $.get("/people/" + field.val(),
+            function (user) {
+                if(field.val()){
+                    if(!user){
+                        if(/^[a-zA-Z0-9]+$/.test(field.val())){
+                            correctField(field);
+                        }
+                        else{
+                            incorrectField(field);
+                            feedback.html("Username field must only contain letters or numbers");
+                        }
+                    }
+                    else{
+                        incorrectField(field);
+                        feedback.html("Username "+field.val()+" is already taken");
+                    }
+                }
+                else{
+                    incorrectField(field);
+                    feedback.html("Username field cannot be blank");
+                }
+            });
+    });
+
 
     $("#bookingForm").submit(function(){
         let success = true;
@@ -35,10 +64,15 @@ $(document).ready();
 
     function correctField(field){
         $(field).css("box-shadow", "0 0 3px rgb(0, 255, 63)");
+        field.addClass("true");
+        field.removeClass("false");
+        $(field).parent().find(".feedback").empty();
     }
 
     function incorrectField(field){
         $(field).css("box-shadow", "0 0 5px rgb(255, 0, 0)");
+        field.addClass("false");
+        field.removeClass("true");
     }
 
     $("main #bookingScreen").on('change', '.packages', function(){
@@ -59,6 +93,10 @@ $(document).ready();
             });
     });
 
+
+
+
+
     $("main #bookingScreen").on('change', '.styles', function(){
         const packageName = $(this).parent().parent().find('.packages').val();
         const edit = $(this).parent().parent().parent().find('.packageDescriptionContainer');
@@ -67,14 +105,24 @@ $(document).ready();
             function (response){
                 for(let style in response){
                     if(response[style].style === styleName){
-                        $(edit).find('.cost').html(response[style].cost);
-                        $(edit).find('.time').html(response[style].time);
+                        $(edit).find('.cost').html('£'+response[style].cost);
+                        $(edit).find('.time').html(response[style].time+' min');
                     }
                 }
             });
     });
 
+    $("main #bookingScreen #extraPackage").on('click','.packageClose',function(){
+        $(this).parent().parent().parent().parent().remove();
+        if($('#packageSection .packageWrapper').length < 3){
+            $('#packageSection .packageAdd').show();
+        }
+    });
+
     $("main #bookingScreen .packageAdd").click(function(){
+        if($('#packageSection .packageWrapper').length >= 2){
+            $('#packageSection .packageAdd').hide();
+        }
         const extraPackage = $("main #bookingScreen #extraPackage");
         $(extraPackage).append(
             '<div class="row packageWrapper">'+
@@ -85,37 +133,40 @@ $(document).ready();
                         '</div>'+
                         '<div class="col-10 packageTitle">'+
                             '<span>Select Package</span>'+
+                            '<button type="button" class="close packageClose" aria-label="Close">' +
+                                '<span aria-hidden="true">&times;</span>' +
+                            '</button>'+
                         '</div>'+
                     '</div>'+
                     '<div class="row packageBody">'+
-                            '<div class="col-sm-4">'+
+                            '<div class="col-sm-6 col-md-4">'+
                                 '<label>Package</label>'+
                                 '<select name="packages" class="packages">'+
                                     '<option disabled selected value>- SELECT -</option>'+
                                 '</select>'+
                             '</div>'+
-                            '<div class="col-sm-4">'+
+                            '<div class="col-sm-6 col-md-4">'+
                                 '<label>Style</label>'+
                                 '<select name="styles" class="styles">'+
                                     '<option disabled selected value>- SELECT -</option>'+
                                 '</select>'+
                             '</div>'+
-                        '<div class="col-sm-4">'+
+                        '<div class="col-sm-6 col-md-4">'+
                             '<div class="packageDescriptionContainer">'+
                                 '<div class="row">'+
                                     '<div class="col">'+
-                                        '<span>Cost:</span>'+
+                                        '<span>Cost: </span>'+
                                     '</div>'+
-                                    '<div class="col">'+
-                                        '<span class="cost"></span>'+
+                                    '<div class="col" style="text-align: left">'+
+                                        '<span style="padding-left: 5px; text-transform: initial;" class="cost"></span>'+
                                     '</div>'+
                                 '</div>'+
                                 '<div class="row">'+
                                     '<div class="col">'+
-                                        '<span>Time:</span>'+
+                                        '<span>Time: </span>'+
                                     '</div>'+
-                                    '<div class="col">'+
-                                        '<span class="time"></span>'+
+                                    '<div class="col" style="text-align: left">'+
+                                        '<span style="padding-left: 5px; text-transform: initial;" class="time"></span>'+
                                     '</div>'+
                                 '</div>'+
                             '</div>'+
