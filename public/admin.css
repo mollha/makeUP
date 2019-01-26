@@ -65,6 +65,7 @@ main .adminIcon{
     display: block;
     text-transform: uppercase;
     color: white;
+    border: none;
     background-color: #ff7865;
     margin: 5% auto 5%;
     padding: 1% 8%;
@@ -151,7 +152,7 @@ form input:hover{
     display: block;
 }
 label{
-    margin: 5px;
+    margin-top: 10px;
     font-size: 14px;
     text-transform: uppercase;
     text-align: center;
@@ -159,20 +160,41 @@ label{
 }
 
 .hover:hover{
-    opacity: 0.5;
+    opacity: 0.7;
     cursor: pointer;
     text-decoration: none;
     color: white;
 }
 
+
 .userWrap input{
     display: initial;
     width: 90%;
+    font-size: 14px;
+    color: #636363;
     margin: 5px 0;
     border: none;
     background: none;
+    text-align: center;
 }
+
+.userWrap label, .userWrap span{
+    color: white;
+    font-weight: bold;
+    background-color: #d1d1d1;
+    padding: 2px 10%;
+    border-radius: 5px;
+}
+
 
 #addPackage{
     text-align: center;
+}
+
+#closeBtn{
+    background-color: #636363;
+}
+
+#modal .modal-body{
+    text-transform: initial;
 }

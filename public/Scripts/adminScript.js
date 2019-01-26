@@ -15,7 +15,6 @@ $("#objectsWrap").on('click', '.userWrap .chevron', function(){
                     '<div class="row extraDetails">' +
                     '<div class="col userField" id="forenameCol"><label for="forename">Forename</label><input id="forename" value="'+user.forename+'"></div>' +
                     '<div class="col userField" id="surnameCol"><label for="surname">Surname</label><input id="surname" value="'+user.surname+'"></div>' +
-                    '<div class="col userField" id="passwordCol"></div>' +
                     '</div>'
                 );
             });
@@ -50,17 +49,51 @@ function loadUsers() {
 }
 loadUsers();
 
+
+
 $('#objectsWrap').on('change', '.userWrap input', function(){
-    let inputID = $(this).attr('id');
-    let newValue = $(this).val();
-    let usernameVal = $(this).parent().parent().parent().attr('id');
+    const inputID = $(this).attr('id');
+    const newValue = $(this).val();
+    const usernameVal = $(this).parent().parent().parent().attr('id');
+    $.get("/people/" + usernameVal,
+        function (user) {
+            $('#modal .modal-body').html('Change <div style="display: inline" id="inputID">'+inputID+'</div> for <strong><div style="display: inline" id="usernameVal">'+usernameVal+'</div></strong> from "<div style="display: inline" id="oldValue">'+user[inputID]+'</div>" to "<div style="display: inline" id="newValue">'+newValue+'</div>"?');
+        });
+    $('#modal').modal('toggle');
+});
+
+
+$('#modal').on('click', '#saveBtn',function(){
+    $('#modal').modal('toggle');
+    const usernameVal = $('#modal .modal-body').find('#usernameVal').html();
+    const inputID = $('#modal .modal-body').find('#inputID').html();
+    const newValue = $('#modal .modal-body').find('#newValue').html();
     $.post('/people/'+usernameVal,
-            {
+        {
             fieldName: inputID,
             fieldVal: newValue,
             username: usernameVal
-            },
-        function(response){
-            alert(response);
-        });
+        },
+);
 });
+
+$('#modal').on('click', '#closeBtn',function(){
+    const usernameVal = $('#modal .modal-body').find('#usernameVal').html();
+    const inputID = $('#modal .modal-body').find('#inputID').html();
+    const oldValue = $('#modal .modal-body').find('#oldValue').html();
+    $('#'+usernameVal+' #'+inputID).val(oldValue);
+});
+
+/*function(){
+    $.ajax({
+        url: '/people',
+        contentType: 'application/json',
+        headers: {"Authorization": localStorage.getItem('token')},
+        success: function(response){
+            $.each(response, function(key){
+
+            });
+        }
+    }
+}
+*/

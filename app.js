@@ -1,10 +1,8 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const peep = require('./routes/people');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use('/', peep);
 
 let people = [
     {
@@ -12,16 +10,6 @@ let people = [
         "forename":"Delia",
         "surname":"Derbyshire",
         "password":"delia123"},
-    {
-        "username":"annab3ll",
-        "forename":"Anna",
-        "surname":"Carenthos",
-        "password":"annasWorld"},
-    {
-        "username":"catVonD",
-        "forename":"Caterina",
-        "surname":"Soors",
-        "password":"cats2Cute"}
     ];
 
 let packages =
@@ -109,9 +97,11 @@ app.get('/people/:username', function(req, res){
 });
 
 app.post('/people', function(req, res){
+    for(let person in people){
+
+    }
     people.push(req.body);
     res.send("request to include new person called " + req.body.forename);
-    console.log(people)
 });
 
 app.post('/people/:username', function(req, res) {
