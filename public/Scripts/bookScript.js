@@ -24,20 +24,20 @@ $(document).ready();
         $.get("/people/" + field.val(),
             function (user) {
                 if(field.val()){
-                    if(!user){
-                        if(/^[a-zA-Z0-9]+$/.test(field.val())){
+                    if(/^[a-zA-Z0-9]+$/.test(field.val())){
+                        if(!user) {
                             correctField(field);
                         }
-                        else{
+                        else {
                             incorrectField(field);
-                            feedback.html("Username field must only contain letters or numbers");
+                            feedback.html("Username "+field.val()+" is already taken");
                         }
                     }
                     else{
                         incorrectField(field);
-                        feedback.html("Username "+field.val()+" is already taken");
+                        feedback.html("Username field must only contain letters or numbers");
+                        }
                     }
-                }
                 else{
                     incorrectField(field);
                     feedback.html("Username field cannot be blank");
@@ -48,7 +48,7 @@ $(document).ready();
 
     $("#bookingForm").submit(function(){
         let success = true;
-        $(this).find("input").each(function(){
+        $('#bookingForm').find(".form-field").each(function(){
             let boolean = $(this).hasClass("false");
             if(boolean){
                 success = false;
@@ -64,21 +64,20 @@ $(document).ready();
 
     function correctField(field){
         $(field).css("box-shadow", "0 0 3px rgb(0, 255, 63)");
-        field.addClass("true");
-        field.removeClass("false");
+        $(field).removeClass("false");
         $(field).parent().find(".feedback").empty();
     }
 
     function incorrectField(field){
         $(field).css("box-shadow", "0 0 5px rgb(255, 0, 0)");
-        field.addClass("false");
-        field.removeClass("true");
+        $(field).addClass("false");
     }
 
     $("main #bookingScreen").on('change', '.packages', function(){
         const packageName = $(this).val();
         const styles = $(this).parent().parent().find('.styles');
         $(styles).empty();
+        $(styles).addClass("false");
         $(styles).append(
             '<option disabled selected value>- SELECT -</option>'
         );
@@ -94,10 +93,8 @@ $(document).ready();
     });
 
 
-
-
-
     $("main #bookingScreen").on('change', '.styles', function(){
+        $(this).removeClass('false');
         const packageName = $(this).parent().parent().find('.packages').val();
         const edit = $(this).parent().parent().parent().find('.packageDescriptionContainer');
         const styleName = $(this).val();
@@ -109,6 +106,7 @@ $(document).ready();
                         $(edit).find('.time').html(response[style].time+' min');
                     }
                 }
+                totalCostAndTime();
             });
     });
 
@@ -117,6 +115,7 @@ $(document).ready();
         if($('#packageSection .packageWrapper').length < 3){
             $('#packageSection .packageAdd').show();
         }
+        totalCostAndTime();
     });
 
     $("main #bookingScreen .packageAdd").click(function(){
@@ -147,7 +146,7 @@ $(document).ready();
                             '</div>'+
                             '<div class="col-sm-6 col-md-4">'+
                                 '<label>Style</label>'+
-                                '<select name="styles" class="styles">'+
+                                '<select name="styles" class="styles form-field false">'+
                                     '<option disabled selected value>- SELECT -</option>'+
                                 '</select>'+
                             '</div>'+
@@ -155,7 +154,7 @@ $(document).ready();
                             '<div class="packageDescriptionContainer">'+
                                 '<div class="row">'+
                                     '<div class="col">'+
-                                        '<span>Cost: </span>'+
+                                        '<span>Cost : </span>'+
                                     '</div>'+
                                     '<div class="col" style="text-align: left">'+
                                         '<span style="padding-left: 5px; text-transform: initial;" class="cost"></span>'+
@@ -163,7 +162,7 @@ $(document).ready();
                                 '</div>'+
                                 '<div class="row">'+
                                     '<div class="col">'+
-                                        '<span>Time: </span>'+
+                                        '<span>Time : </span>'+
                                     '</div>'+
                                     '<div class="col" style="text-align: left">'+
                                         '<span style="padding-left: 5px; text-transform: initial;" class="time"></span>'+
@@ -192,4 +191,23 @@ $(document).ready();
         });
     }
     loadPackages($('#bookingScreen .packageWrapper .packages'));
+
+    function totalCostAndTime(){
+        let totalTime = 0;
+        let totalCost = 0;
+        $('#packageSection .packageWrapper').each(function(){
+            let cost = $(this).find('.cost').html();
+            let costSubstring = cost.substring(1, cost.length);
+            if(costSubstring) {
+                totalCost += parseInt(costSubstring);
+            }
+            let time = $(this).find('.time').html();
+            let timeSubstring = time.substring(0, time.length-3);
+            if(timeSubstring) {
+                totalTime += parseInt(timeSubstring);
+            }
+        });
+        $('.total .totalTime').html('TOTAL TIME: '+totalTime+' min');
+        $('.total .totalCost').html('TOTAL COST: £'+totalCost);
+    }
 }

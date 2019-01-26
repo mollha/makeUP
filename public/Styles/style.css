@@ -149,13 +149,14 @@ main #blurScreen{
     z-index: 1032;
 }
 main #bookingScreen{
-    width:100%;
+    width: 100%;
     margin: 0 auto;
     border-radius: 4px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url("../Images/booking-bg.png");
+    height: 30%;
+    background: url("../Images/booking-bg.png") fixed;
 }
 main #signUpScreen{
     max-width: 500px;
@@ -176,7 +177,8 @@ main #signUpScreen{
 }
 
 main .formWrapper{
-    width:60%;
+    max-width: 900px;
+    width:90%;
     height:90%;
     margin: 2% 0;
     box-shadow: 0 0 20px rgba(100, 100, 100,0.5);
@@ -432,16 +434,13 @@ form label{
     text-align: center;
 }
 
-#bookingScreen #bookingFormWrapper #bookingForm .btn, #signInScreen #signInForm .btn, #signUpScreen #signUpForm .btn{
+#bookingScreen #bookingFormWrapper #bookingForm .btn{
     display: block;
     text-transform: uppercase;
     color: white;
     background-color: #ff7865;
     margin: 5% auto 5%;
     padding: 1% 8%;
-}
-.form-check-inline{
-    margin: 5px 25%;
 }
 
 #bookingForm #packageSelectHeader p{
@@ -530,9 +529,10 @@ form label{
     text-transform: initial;
 }
 
-#bookingScreen .total .col:first-child span{
+#bookingScreen .total span{
     text-transform: initial;
     margin-left: 10%;
+    font-size: 14px;
     padding: 0 5px;
 }
 
