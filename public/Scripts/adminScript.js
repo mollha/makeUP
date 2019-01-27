@@ -85,8 +85,44 @@ $('#modal').on('hide.bs.modal', function(){
     $('#'+usernameVal+' #'+inputID).val(oldValue);
 });
 
-
-
+$('#signUpForm').on('submit', function(){
+    // $.ajax({
+    //     method: "post",
+    //     url: '/people',
+    //     contentType: 'application/json',
+    //     beforeSend: (xhr) =>{xhr.setRequestHeader('access_token','concertina')},
+    //     data: JSON.stringify({
+    //         username: $('#signUpForm #usernameField').val(),
+    //         forename: $('#signUpForm #forenameField').val(),
+    //         surname: $('#signUpForm #surnameField').val()
+    //     }),
+    //     success: function(response){
+    //         alert('it worked');
+    //     },
+    // });
+    $.ajax({
+        type: 'post',
+        url: '/people',
+        data: {
+            username: $('#signUpForm #usernameField').val(),
+            forename: $('#signUpForm #forenameField').val(),
+            surname: $('#signUpForm #surnameField').val()
+        },
+        xhrFields: {
+            withCredentials: false
+        },
+        headers: {
+            'access_token': 'concertina'
+        },
+        success: function (data) {
+            console.log('Success');
+            console.log(data);
+        },
+        error: function () {
+            console.log('We are sorry but our servers are having an issue right now');
+        }
+    });
+});
 /*function(){
     $.ajax({
         url: '/people',

@@ -8,8 +8,7 @@ let people = [
     {
         "username":"doctorwhocomposer",
         "forename":"Delia",
-        "surname":"Derbyshire",
-        "password":"delia123"},
+        "surname":"Derbyshire"}
     ];
 
 let packages =
@@ -67,6 +66,9 @@ let packages =
         ]
     }
 
+let bookings = {
+    doctorwhocomposer: []}
+
 
 //routes
 
@@ -97,11 +99,17 @@ app.get('/people/:username', function(req, res){
 });
 
 app.post('/people', function(req, res){
-    for(let person in people){
-
+    if(req.headers.access_token === 'concertina'){
+        const username = req.body["username"];
+        console.log(req.headers);
+        console.log(req.body);
+        console.log('got here');
+        people.push(req.body);
+        res.sendStatus(200);
     }
-    people.push(req.body);
-    res.send("request to include new person called " + req.body.forename);
+    else{
+        res.sendStatus(403);
+    }
 });
 
 app.post('/people/:username', function(req, res) {
@@ -114,35 +122,20 @@ app.post('/people/:username', function(req, res) {
     }
 });
 
-app.post('/login', function(req, res){
-    const password = req.body.password;
-    const user = getUser(req.body.username);
-
-    if(user.username){
-        //username exists
-        if(password === user.password){
-            //correct password
-            res.send(true);
+app.post('/bookings', function(req, res) {
+    const username = req.body.username;
+    const person = {
+        "username":username,
+        "forename":req.body.forename,
+        "surname":req.body.surname};
+    people.push(person);
+    for(let person in people){
+        if (username === people[person].username) {
+            people[person][req.body.fieldName] = req.body.fieldVal;
+            res.send(people[person]);
         }
-        else{
-            //incorrect / no password
-            res.send(false);
-        }
-    }
-    else{
-        //username does not exist
-        res.send(true);
     }
 });
-
-function getUser(username){
-    for(let person in people) {
-        if (username === people[person].username) {
-            return people[person];
-        }
-    }
-    return false;
-}
 
 //make it accessible
 //re watch stevens last lecture before making video demonstration

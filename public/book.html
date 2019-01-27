@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">    <link rel='icon' href='./Images/favicon.png' type='image/x-icon'>
-    <title>MakeUp | BOOK</title>
+    <title>Book</title>
 </head>
 <body>
 <header>
     <div class="icons"></div>
     <nav class="navbar navbar-expand-md fixed-top navbar-light">
-        <a class="navbar-brand mx-auto" href="index.html"><img src="./Images/Logo.png" width="150px" alt="Makeup logo"></a>
+        <a class="navbar-brand mx-auto" href="index.html"><img src="./Images/Logo.png" alt="Makeup logo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarDropdown" aria-controls="navbarDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -28,9 +28,9 @@
                         Packages
                     </p>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenu">
-                        <a class="dropdown-item hover" href="packages.html" id="packagesDrop1">Hair</a>
-                        <a class="dropdown-item hover" href="packages.html" id="packagesDrop2">Make Up</a>
-                        <a class="dropdown-item hover" href="packages.html" id="packagesDrop3">Nails</a>
+                        <a class="dropdown-item hover" href="packages.html?tab=hairTab" id="packagesDrop1">Hair</a>
+                        <a class="dropdown-item hover" href="packages.html?tab=makeupTab" id="packagesDrop2">Make Up</a>
+                        <a class="dropdown-item hover" href="packages.html?tab=nailsTab" id="packagesDrop3">Nails</a>
                     </div>
                 </li>
             </ul>
@@ -130,9 +130,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row" id="errorMsg">
-
-                </div>
+                <div class="row" style="padding-left: 5%" id="errorMsg"></div>
                 <div class="row total">
                     <div class="col">
                         <span class="totalCost">TOTAL COST:</span>

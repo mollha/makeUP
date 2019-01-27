@@ -48,34 +48,70 @@ $(document).ready();
 
     $("#bookingForm").submit(function(){
         let success = true;
-        $('#bookingForm').find(".form-field").each(function(){
+        $('#bookingForm #userDetails').find(".form-field").each(function(){
             let boolean = $(this).hasClass("false");
             if(boolean){
                 success = false;
+                incorrectField($(this));
+                const feedback = $(this).parent().find(".feedback");
+                feedback.html($(this).parent().find("input").attr("id")+" field cannot be blank");
             }
         });
-        if(success){
-            alert('We can submit');
+        let packageResult = checkValidPackages();
+        if(success && packageResult){
+            book();
         }
         else{
-            alert('We cannot submit yet');
+            return false;
         }
     });
 
+    function book(){
+        $.post('/bookings',
+            {
+                username: $('#bookingForm #userDetails #Username').val(),
+                forename: $('#bookingForm #userDetails #Forename').val(),
+                surname: $('#bookingForm #userDetails #Surname').val()
+            });
+    }
+
+    function checkValidPackages(){
+        let success = true;
+        $('#bookingForm #packageSection').find(".form-field").each(function(){
+            let boolean = $(this).hasClass("false");
+            if(boolean){
+                success = false;
+                $('#errorMsg').html('Packages must not be left empty');
+                $(this).parent().parent().parent().css("box-shadow", "0 0 5px rgb(255, 0, 0)");
+            }
+        });
+        if(success){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    //field should light up green and allow form submission if the input is acceptable
     function correctField(field){
-        $(field).css("box-shadow", "0 0 3px rgb(0, 255, 63)");
+        $(field).css("box-shadow", "0 0 5px rgb(0, 255, 63)");
         $(field).removeClass("false");
         $(field).parent().find(".feedback").empty();
     }
 
+    //field should light up red and stop form submission if the input is not acceptable
     function incorrectField(field){
         $(field).css("box-shadow", "0 0 5px rgb(255, 0, 0)");
         $(field).addClass("false");
     }
 
+    //retrieve styles when new package is selected
     $("main #bookingScreen").on('change', '.packages', function(){
         const packageName = $(this).val();
         const styles = $(this).parent().parent().find('.styles');
+        $('#errorMsg').empty();
+        $(this).parent().parent().parent().css("box-shadow", "none");
         $(styles).empty();
         $(styles).addClass("false");
         $(styles).append(
@@ -92,9 +128,11 @@ $(document).ready();
             });
     });
 
-
+    //when a new style is selected retrieve cost and time details
     $("main #bookingScreen").on('change', '.styles', function(){
         $(this).removeClass('false');
+        $('#errorMsg').empty();
+        $(this).parent().parent().parent().css("box-shadow", "0 0 5px rgb(0, 255, 63)");
         const packageName = $(this).parent().parent().find('.packages').val();
         const edit = $(this).parent().parent().parent().find('.packageDescriptionContainer');
         const styleName = $(this).val();
@@ -110,6 +148,7 @@ $(document).ready();
             });
     });
 
+    //when package close button is selected, update total cost and time and re-insert add package option
     $("main #bookingScreen #extraPackage").on('click','.packageClose',function(){
         $(this).parent().parent().parent().parent().remove();
         if($('#packageSection .packageWrapper').length < 3){
@@ -118,6 +157,7 @@ $(document).ready();
         totalCostAndTime();
     });
 
+    //insert new package template when clicking package add button
     $("main #bookingScreen .packageAdd").click(function(){
         if($('#packageSection .packageWrapper').length >= 2){
             $('#packageSection .packageAdd').hide();
@@ -178,6 +218,7 @@ $(document).ready();
         loadPackages(newPackage);
     });
 
+    //load list of packages into package select template
     function loadPackages(packageList){
         $(packageList).empty();
         $(packageList).append("<option disabled selected value>- SELECT -</option>");
@@ -190,8 +231,8 @@ $(document).ready();
                 })
         });
     }
-    loadPackages($('#bookingScreen .packageWrapper .packages'));
 
+    //calculate the total cost and total time of the currently selected packages
     function totalCostAndTime(){
         let totalTime = 0;
         let totalCost = 0;
@@ -210,4 +251,7 @@ $(document).ready();
         $('.total .totalTime').html('TOTAL TIME: '+totalTime+' min');
         $('.total .totalCost').html('TOTAL COST: £'+totalCost);
     }
+
+    //load packages on page load
+    loadPackages($('#bookingScreen .packageWrapper .packages'));
 }
