@@ -77,7 +77,6 @@ app.get('/people', function(req, res){
 });
 
 app.get('/packages', function(req, res){
-    console.log(packages);
     res.send(packages);
 });
 
@@ -100,21 +99,31 @@ app.get('/people/:username', function(req, res){
 
 app.post('/people', function(req, res){
     if(req.headers.access_token === 'concertina'){
-        const username = req.body["username"];
-        console.log(req.headers);
-        console.log(req.body);
-        console.log('got here');
-        people.push(req.body);
-        res.sendStatus(200);
+        if(checkUsername(req.body.username)){
+            people.push(req.body);
+            res.sendStatus(200);
+        }
+        else{
+            res.sendStatus(400);
+        }
     }
     else{
         res.sendStatus(403);
     }
 });
 
+function checkUsername(username){
+    for(let person in people){
+        if(person.username === username){
+            return false;
+        }
+    }
+    return true;
+}
+
 app.post('/people/:username', function(req, res) {
     const username = req.body.username;
-    for(let person in people){
+    for(let person in people) {
         if (username === people[person].username) {
             people[person][req.body.fieldName] = req.body.fieldVal;
             res.send(people[person]);
@@ -123,18 +132,8 @@ app.post('/people/:username', function(req, res) {
 });
 
 app.post('/bookings', function(req, res) {
-    const username = req.body.username;
-    const person = {
-        "username":username,
-        "forename":req.body.forename,
-        "surname":req.body.surname};
-    people.push(person);
-    for(let person in people){
-        if (username === people[person].username) {
-            people[person][req.body.fieldName] = req.body.fieldVal;
-            res.send(people[person]);
-        }
-    }
+    console.log(req.body.packages);
+    res.sendStatus(200);
 });
 
 //make it accessible

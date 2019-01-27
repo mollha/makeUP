@@ -230,6 +230,7 @@ form label{
     background-color: #ff7865;
     margin: 5% auto 5%;
     padding: 1% 8%;
+    border: none;
 }
 
 
@@ -434,14 +435,6 @@ form label{
     text-align: center;
 }
 
-#bookingScreen #bookingFormWrapper #bookingForm .btn{
-    display: block;
-    text-transform: uppercase;
-    color: white;
-    background-color: #ff7865;
-    margin: 5% auto 5%;
-    padding: 1% 8%;
-}
 
 #bookingForm #packageSelectHeader p{
     text-align: center;

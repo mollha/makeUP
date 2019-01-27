@@ -186,6 +186,17 @@ label{
     border-radius: 5px;
 }
 
+#errorMessage{
+    min-height: 20px;
+    color: rgba(226, 0, 0, 0.6);
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    text-transform: initial;
+}
+
 
 #addPackage{
     text-align: center;

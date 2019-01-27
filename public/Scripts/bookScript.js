@@ -2,57 +2,46 @@ $(document).ready();
 {
     $('main #bookingScreen .name').change(function(){
         const field = $(this);
+        const fieldVal = $(this).val();
+        const id = $(this).attr('id');
         const feedback = $(field).parent().find(".feedback");
-        if(field.val()){
-            if(/^[a-zA-Z]+$/.test(field.val())){
-                correctField(field);
+        if(fieldVal){
+            if(/^[a-zA-Z]+$/.test(fieldVal)){
+                if(id === 'Username'){
+                    $.get("/people/" + fieldVal,
+                        function (user) {
+                            if(!user) {
+                                correctField(field);
+                            }
+                            else{
+                                incorrectField(field);
+                                feedback.html("Username "+fieldVal+" is already taken");
+                            }
+                        });
+                }
+                else {
+                    correctField(field);
+                }
             }
             else{
                 incorrectField(field);
-                feedback.html($(field).parent().find("input").attr('id')+" field must only contain letters");
+                feedback.html(id + " field must only contain letters");
             }
         }
         else{
             incorrectField(field);
-            feedback.html($(field).parent().find("input").attr('id')+" field cannot be blank");
+            feedback.html(id +" field cannot be blank");
         }
-    });
-
-    $('main #bookingScreen #Username').change(function(){
-        const field = $(this);
-        const feedback = $(field).parent().find(".feedback");
-        $.get("/people/" + field.val(),
-            function (user) {
-                if(field.val()){
-                    if(/^[a-zA-Z0-9]+$/.test(field.val())){
-                        if(!user) {
-                            correctField(field);
-                        }
-                        else {
-                            incorrectField(field);
-                            feedback.html("Username "+field.val()+" is already taken");
-                        }
-                    }
-                    else{
-                        incorrectField(field);
-                        feedback.html("Username field must only contain letters or numbers");
-                        }
-                    }
-                else{
-                    incorrectField(field);
-                    feedback.html("Username field cannot be blank");
-                }
-            });
     });
 
 
     $("#bookingForm").submit(function(){
         let success = true;
         $('#bookingForm #userDetails').find(".form-field").each(function(){
-            let boolean = $(this).hasClass("false");
-            if(boolean){
+            let field = $(this);
+            if(!$(field).hasClass("true") && !$(field).hasClass("false")){
                 success = false;
-                incorrectField($(this));
+                incorrectField(field);
                 const feedback = $(this).parent().find(".feedback");
                 feedback.html($(this).parent().find("input").attr("id")+" field cannot be blank");
             }
@@ -60,19 +49,68 @@ $(document).ready();
         let packageResult = checkValidPackages();
         if(success && packageResult){
             book();
+            $('#modal').modal('toggle');
         }
-        else{
-            return false;
-        }
+        return false;
     });
 
+    $('#modal').on('hidden.bs.modal', function () {
+        $('#extraPackage').empty();
+        $('.feedback').empty();
+        const mainPackage = $('.packageItem');
+        $(mainPackage).css('box-shadow','none');
+        let packages = $(mainPackage).find('.packages');
+        let styles = $(mainPackage).find('.styles');
+        $(packages).val( $(packages).prop('defaultSelected'));
+        $(styles).val( $(styles).prop('defaultSelected'));
+        $('.name').val("");
+        $('.name').css('box-shadow','none');
+        $('.cost').empty();
+        $('.time').empty();
+        $('.totalCost').html('TOTAL COST:');
+        $('.totalTime').html('TOTAL TIME:');
+    })
+
     function book(){
+        let packageData = [];
+        $('#bookingForm #packageSection').find(".form-field").each(function(){
+            let styleName = $(this).val();
+            let packageName = $(this).parent().parent().find('.packages').val();
+            packageData.push({packageName, styleName});
+        });
         $.post('/bookings',
             {
                 username: $('#bookingForm #userDetails #Username').val(),
                 forename: $('#bookingForm #userDetails #Forename').val(),
-                surname: $('#bookingForm #userDetails #Surname').val()
+                surname: $('#bookingForm #userDetails #Surname').val(),
+                packages: JSON.stringify(packageData)
+            },
+            function(response){
+
             });
+
+        // $.get("/packages/" + packageName,
+        //     function(response){
+        //         for(let styleName in response){
+        //             if(response[styleName].style === style){
+        //                 packageData.push(response[styleName]);
+        //                 alert(JSON.stringify(packageData));
+        //             }
+        //         }
+        //     });
+
+        // let data = {
+        //     username: '',
+        //     forename: '',
+        //     surname: '',
+        //     packages: [
+        //         {
+        //             style: '',
+        //             cost: '',
+        //             time: ''
+        //         }
+        //     ]
+        // }
     }
 
     function checkValidPackages(){
@@ -97,6 +135,7 @@ $(document).ready();
     function correctField(field){
         $(field).css("box-shadow", "0 0 5px rgb(0, 255, 63)");
         $(field).removeClass("false");
+        $(field).addClass("true");
         $(field).parent().find(".feedback").empty();
     }
 
@@ -104,6 +143,8 @@ $(document).ready();
     function incorrectField(field){
         $(field).css("box-shadow", "0 0 5px rgb(255, 0, 0)");
         $(field).addClass("false");
+        $(field).removeClass("true");
+        $(field).parent().find(".feedback").empty();
     }
 
     //retrieve styles when new package is selected

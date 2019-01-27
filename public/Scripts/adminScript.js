@@ -24,6 +24,7 @@ $("#objectsWrap").on('click', '.userWrap .chevron', function(){
 
 
 function loadUsers() {
+    $('#objectsWrap').empty();
     $.get("/people",
         function (data) {
             for (let user in data) {
@@ -47,6 +48,8 @@ function loadUsers() {
         });
 
 }
+
+
 loadUsers();
 
 
@@ -86,53 +89,41 @@ $('#modal').on('hide.bs.modal', function(){
 });
 
 $('#signUpForm').on('submit', function(){
-    // $.ajax({
-    //     method: "post",
-    //     url: '/people',
-    //     contentType: 'application/json',
-    //     beforeSend: (xhr) =>{xhr.setRequestHeader('access_token','concertina')},
-    //     data: JSON.stringify({
-    //         username: $('#signUpForm #usernameField').val(),
-    //         forename: $('#signUpForm #forenameField').val(),
-    //         surname: $('#signUpForm #surnameField').val()
-    //     }),
-    //     success: function(response){
-    //         alert('it worked');
-    //     },
-    // });
-    $.ajax({
-        type: 'post',
-        url: '/people',
-        data: {
-            username: $('#signUpForm #usernameField').val(),
-            forename: $('#signUpForm #forenameField').val(),
-            surname: $('#signUpForm #surnameField').val()
-        },
-        xhrFields: {
-            withCredentials: false
-        },
-        headers: {
-            'access_token': 'concertina'
-        },
-        success: function (data) {
-            console.log('Success');
-            console.log(data);
-        },
-        error: function () {
-            console.log('We are sorry but our servers are having an issue right now');
+    $('#createUser #errorMessage').empty();
+    $('.form-field').each(function () {
+        let id = $(this).attr('id');
+        id = id.substring(0,1).toUpperCase()+id.substring(1, id.length-5);
+        let fieldVal = $(this).fieldVal;
+        if(!fieldVal){
+            $('#createUser #errorMessage').html(id+' cannot be left blank');
         }
     });
-});
-/*function(){
-    $.ajax({
-        url: '/people',
-        contentType: 'application/json',
-        headers: {"Authorization": localStorage.getItem('token')},
-        success: function(response){
-            $.each(response, function(key){
-
-            });
-        }
+    const usernameVal = $('#signUpForm #usernameField').val();
+    const forenameVal = $('#signUpForm #forenameField').val();
+    const surnameVal = $('#signUpForm #surnameField').val();
+    if(usernameVal && forenameVal && surnameVal){
+        $.ajax({
+            type: 'post',
+            url: '/people',
+            data: {
+                username: usernameVal,
+                forename: forenameVal,
+                surname: surnameVal
+            },
+            xhrFields: {
+                withCredentials: false
+            },
+            headers: {
+                'access_token': 'concertina'
+            },
+            success: function (response) {
+            },
+        });
+        loadUsers();
     }
-}
-*/
+    return false;
+});
+
+$('.form-field').on('change', function(){
+    $('#createUser #errorMessage').empty();
+})

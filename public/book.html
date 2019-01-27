@@ -50,17 +50,17 @@
                 <div class="row" id="userDetails">
                     <div class="col-sm-4">
                         <label for="Forename">Forename</label>
-                        <input id="Forename" class="form-field name false" type="text" placeholder="e.g. Ariana">
+                        <input id="Forename" class="form-field name" type="text" placeholder="e.g. Ariana">
                         <div class="feedback"></div>
                     </div>
                     <div class="col-sm-4">
                         <label for="Surname">Surname</label>
-                        <input id="Surname" class="form-field name false" type="text" placeholder="e.g. Grande">
+                        <input id="Surname" class="form-field name" type="text" placeholder="e.g. Grande">
                         <div class="feedback"></div>
                     </div>
                     <div class="col-sm-4">
                         <label for="Username">Username</label>
-                        <input id="Username" class="form-field false" type="text" placeholder="e.g. thankUNext">
+                        <input id="Username" class="form-field name" type="text" placeholder="e.g. thankUNext">
                         <div class="feedback"></div>
                     </div>
                 </div>
@@ -143,6 +143,24 @@
                 </div>
                 <button type="submit" class="btn hover book">Book</button>
             </form>
+        </div>
+        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalLabel">Success!</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </main>
