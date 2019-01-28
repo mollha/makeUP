@@ -1,4 +1,3 @@
-// Functions
 $(document).ready(function()
 {
     const url = new URL(window.location);

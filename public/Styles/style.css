@@ -57,6 +57,11 @@ header .navbar .show{
     box-shadow: 0 10px 5px -5px rgba(0,0,0,0.1);
 }
 
+.container-fluid, .row, .container-fluid .col{
+    padding:0;
+    margin: 0;
+}
+
 main #homePageContent #imageCarouselFooter{
     background-color: rgba(255, 120, 101, 0.2);
     height: 5px;
@@ -120,11 +125,134 @@ main #homePageContent #stepByStep .content{
     padding:5%;
 }
 
-.dot{
-    width: 15%;
-    margin-left: 42.5%;
-    margin-top:5%;
-    margin-bottom:2%;
+main #packagesPageContent .nav-tabs a{
+    color: rgba(0,0,0,.5);
+}
+main #packagesPageContent .nav-item .active{
+    color: white;
+    font-style: italic;
+    font-weight: bold;
+    background-color: #ff7865;
+}
+main #packagesPageContent #tabList{
+    background-color: transparent;
+    border-bottom-color: #ffeaf1;
+    border-bottom-width: 5px;
+    margin-top: 23%;
+}
+main #packagesPageContent .nav-link{
+    background-color: white;
+    border: none;
+}
+main #packagesPageContent .nav-item{
+    width: 30%;
+    max-width: 200px;
+    margin-right: 5px;
+}
+main #packagesPageContent .tab-content{
+    background-color: white;
+}
+main #packagesPageContent #packagesImageHeader img{
+    display: none;
+    width: 100%;
+    height: auto;
+    top:110px;
+    left: 0;
+    position: fixed;
+    z-index: -1;
+}
+main #packagesPageContent .tab-content .tabContentPanel1 img{
+    width:80%;
+    margin: 10%;
+    box-shadow: 0 0 10px rgba(100, 100, 100,1);
+}
+main #packagesPageContent .tab-content h1{
+    font-size: 80px;
+    font-weight: bold;
+    background-color:#efefef;
+    color: white;
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+main #packagesPageContent .tab-content .findOutMore{
+    background-color: #7a7a7a;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    border: none;
+    margin-left: 40%;
+}
+main #packagesPageContent .tab-content .tabDesc p{
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    width: 100%;
+    padding-bottom: 2%;
+    font-weight: lighter;
+    text-transform: initial;
+}
+main #packagesPageContent .tab-content .tabDesc .packageDescWrapper{
+    width: 95%;
+    margin: auto;
+    padding-bottom: 5%;
+}
+main #packagesPageContent .tab-content .tabDesc {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+main #packagesPageContent .tab-content .tabContentPanel2{
+    background-color: #efefef;
+}
+main #packagesPageContent .tab-content .tabContentPanel2 .option .optionWrapper{
+    background-color: white;
+    margin: 5% auto;
+    box-shadow: 0 0 5px rgba(200, 200, 200, 0.2);
+    width: 80%;
+    font-family: 'Playfair Display', serif;
+    text-transform: initial;
+
+}
+main #packagesPageContent .tab-content .tabContentPanel2 .option .book {
+    background-color: #ff7865;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 2% 5%;
+    margin-left: 41%;
+    margin-bottom: 10%;
+}
+main #packagesPageContent .tab-content .tabContentPanel2 .option .optionImgWrapper{
+    background-color: #f9f9f9;
+    width: 80%;
+    margin: 5% 10%;
+    box-shadow: 0 0 5px rgba(200, 200, 200, 0.9);
+}
+main #packagesPageContent .tab-content .tabContentPanel2 .option .optionImgWrapper img{
+    width: 90%;
+    margin: 5%;
+}
+main #packagesPageContent .tab-content .tabContentPanel2 .option .optionHeader{
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 2%;
+    text-align: center;
+
+}
+main #packagesPageContent .tab-content .tabContentPanel2 .option .optionTextWrapper{
+    width: 80%;
+    margin: 0 12% 10%;
+    padding-bottom: 5%;
+}
+main #packagesPageContent .tab-content .tabContentPanel2 .option .fa-chevron-up{
+    font-size: 24px;
+    display: block;
+    margin-left: 48%;
+    margin-bottom: 2%;
+    color: #8f8f8f;
 }
 
 main #bookingScreen{
@@ -137,18 +265,7 @@ main #bookingScreen{
     height: 30%;
     background: url("../Images/booking-bg.png") fixed;
 }
-
-main .formWrapper{
-    max-width: 900px;
-    width:90%;
-    height:90%;
-    margin: 2% 0;
-    box-shadow: 0 0 20px rgba(100, 100, 100,0.5);
-    border-radius: 4px;
-    background-color: white;
-}
-
-main #bookingScreen .formWrapper #bookUpImage, main #signUpScreen .formWrapper #signUpImage{
+main #bookingScreen .formWrapper #bookUpImage{
     display: block;
     margin: 3% auto 0;
     width: 30%;
@@ -156,6 +273,110 @@ main #bookingScreen .formWrapper #bookUpImage, main #signUpScreen .formWrapper #
 main #bookingScreen .formWrapper #bookingForm{
     font-size: 18px;
     color: #555555;
+}
+main #bookingScreen #bookingForm #packageSelectHeader p{
+    text-align: center;
+    width:40%;
+    margin-bottom: 10px;
+    margin-left: 30%;
+    margin-right: 30%;
+    background-color: #ff7865;
+    color:white;
+    border-radius: 5px;
+}
+main #bookingScreen .packageItem{
+    background:linear-gradient(to bottom,#efefef 1%, #fbfbfb 85%, #efefef 100%);
+    padding: 2%;
+}
+main #bookingScreen .packageDescriptionContainer{
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 14px;
+    min-width: 110px;
+    text-align: right;
+}
+main #bookingScreen .packageDescriptionContainer .row{
+    margin-top: 5px;
+}
+main #bookingScreen .packageIcon{
+    width: 25px;
+    margin: 3% 0;
+}
+main #bookingScreen .packageWrapper{
+    display: flex;
+    justify-content: center;
+}
+main #bookingScreen .packageItem{
+    width: 90%;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+main #bookingScreen .packageHead{
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 5px auto;
+    height: 40px;
+    background: white;
+}
+main #bookingScreen .packageAdd{
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    width: 90%;
+    height: 40px;
+    margin: 5px auto;
+    background:linear-gradient(to bottom,#efefef 1%, #fbfbfb 85%, #efefef 100%);
+}
+main #bookingScreen .packageAdd:hover{
+    background:linear-gradient(to bottom,#f9f9f9 1%, #fefefe 85%, #f9f9f9 100%);
+    cursor: pointer;
+}
+main #bookingScreen .packageHead span, main #bookingScreen .packageAdd span{
+    color: #636363;
+    white-space: nowrap;
+    overflow: hidden;
+    border-radius: 5px;
+    font-size: 16px;
+    padding-left: 2%;
+}
+main #bookingScreen #userDetails .feedback, main #bookingScreen #errorMsg{
+    min-height: 20px;
+    color: rgba(226, 0, 0, 0.6);
+    font-size: 12px;
+    text-align: center;
+    text-transform: initial;
+}
+main #bookingScreen .total span{
+    text-transform: initial;
+    margin-left: 10%;
+    font-size: 14px;
+    padding: 0 5px;
+}
+main #bookingScreen .btn{
+    margin-top: 0;
+}
+
+footer #pressBanner{
+    background-color: lightgrey;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+footer #pressBanner img{
+    margin: 7px auto;
+}
+footer #socialMediaIcons{
+    background-color: #7a7a7a;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+}
+footer .fa{
+    background: transparent;
+    color: white;
+    margin: 6px 50px;
 }
 
 form input, form select{
@@ -181,10 +402,18 @@ form input:hover{
     border-color: #ededed;
 }
 form label{
+    margin: 5% 0 2%;
+    width: 100%;
     padding-top: 10px;
     text-align: center;
 }
 
+.dot{
+    width: 15%;
+    margin-left: 42.5%;
+    margin-top:5%;
+    margin-bottom:2%;
+}
 .btn{
     display: block;
     text-transform: uppercase;
@@ -194,303 +423,17 @@ form label{
     padding: 1% 8%;
     border: none;
 }
-
-
-#bookingForm #packageSelectHeader p{
-    text-align: center;
-    width:40%;
-    margin-bottom: 10px;
-    margin-left: 30%;
-    margin-right: 30%;
-    background-color: #ff7865;
-    color:white;
-    border-radius: 5px;
-}
-
-.container-fluid, .row, .container-fluid .col{
-    padding:0;
-    margin: 0;
-}
-
-#packagesPageContent .nav-tabs a{
-    color: rgba(0,0,0,.5);
-}
-#packagesPageContent .nav-item .active{
-    color: white;
-    font-style: italic;
-    font-weight: bold;
-    background-color: #ff7865;
-}
-#packagesPageContent #tabList{
-    background-color: transparent;
-    border-bottom-color: #ffeaf1;
-    border-bottom-width: 5px;
-    margin-top: 23%;
-}
-#packagesPageContent .nav-link{
-    background-color: white;
-    border: none;
-}
-#packagesPageContent .nav-item{
-    width: 30%;
-    max-width: 200px;
-    margin-right: 5px;
-}
-#packagesPageContent .tab-content{
-    background-color: white;
-}
-#packagesPageContent #packagesImageHeader img{
-    display: none;
-    width: 100%;
-    height: auto;
-    top:110px;
-    left: 0;
-    position: fixed;
-    z-index: -1;
-}
-#packagesPageContent .tab-content .tabContentPanel1 img{
-    width:80%;
-    margin: 10%;
-    box-shadow: 0 0 10px rgba(100, 100, 100,1);
-}
-#packagesPageContent .tab-content h1{
-    font-size: 80px;
-    font-weight: bold;
-    background-color:#efefef;
-    color: white;
-    width: 100%;
-    margin-top: 15px;
-    padding: 10px 0;
-    text-align: center;
-    text-transform: uppercase;
-}
-#packagesPageContent .tab-content .findOutMore{
-    background-color: #7a7a7a;
-    font-size: 16px;
-    color: white;
-    text-align: center;
-    border: none;
-    margin-left: 40%;
-}
-#packagesPageContent .tab-content .tabDesc p{
-    text-align: center;
-    font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    width: 100%;
-    padding-bottom: 2%;
-    font-weight: lighter;
-    text-transform: initial;
-}
-#packagesPageContent .tab-content .tabDesc .packageDescWrapper{
-    width: 95%;
-    margin: auto;
-    padding-bottom: 5%;
-}
-#packagesPageContent .tab-content .tabDesc {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-#packagesPageContent .tab-content .tabContentPanel2{
-    background-color: #efefef;
-}
-#packagesPageContent .tab-content .tabContentPanel2 .option .optionWrapper{
-    background-color: white;
-    margin: 5% auto;
-    box-shadow: 0 0 5px rgba(200, 200, 200, 0.2);
-    width: 80%;
-    font-family: 'Playfair Display', serif;
-    text-transform: initial;
-
-}
-#packagesPageContent .tab-content .tabContentPanel2 .option .book {
-    background-color: #ff7865;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 2% 5%;
-    margin-left: 41%;
-    margin-bottom: 10%;
-}
-#packagesPageContent .tab-content .tabContentPanel2 .option .optionImgWrapper{
-    background-color: #f9f9f9;
-    width: 80%;
-    margin: 5% 10%;
-    box-shadow: 0 0 5px rgba(200, 200, 200, 0.9);
-}
-#packagesPageContent .tab-content .tabContentPanel2 .option .optionImgWrapper img{
-    width: 90%;
-    margin: 5%;
-}
-#packagesPageContent .tab-content .tabContentPanel2 .option .optionHeader{
-    font-size: 20px;
-    font-weight: bold;
-    margin-top: 2%;
-    text-align: center;
-
-}
-#packagesPageContent .tab-content .tabContentPanel2 .option .optionTextWrapper{
-    width: 80%;
-    margin: 0 12% 10%;
-    padding-bottom: 5%;
-}
-#packagesPageContent .tab-content .tabContentPanel2 .option .fa-chevron-up{
-    font-size: 24px;
-    display: block;
-    margin-left: 48%;
-    margin-bottom: 2%;
-    color: #8f8f8f;
-}
-
-footer #pressBanner{
-    background-color: lightgrey;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-footer #pressBanner img{
-    margin: 7px auto;
-}
-footer #socialMediaIcons{
-    background-color: #7a7a7a;
-    justify-content: center;
-    align-items: center;
-    height: 35px;
-}
-footer .fa{
-    background: transparent;
-    color: white;
-    margin: 6px 50px;
-}
-
 .hover:hover{
     opacity: 0.7;
     cursor: pointer;
     text-decoration: none;
 }
-
-form input{
-    font-family: Avenir,sans-serif;
-    margin-right: auto;
-    margin-left: auto;
-    margin-bottom: 5%;
-    width: 95%;
-    max-width: 200px;
-    height: 30px;
-    border: 1px solid #d1d1d1;
-    padding-left: 5px;
-    font-size: 14px;
-    display: block;
-}
-
-form input::placeholder{
-    color: lightgrey;
-}
-
-form input:hover{
-    border-color: #ededed;
-}
-
-form label{
-    margin: 5% 0 2%;
-    width: 100%;
-    text-align: center;
-}
-
-
-#bookingForm #packageSelectHeader p{
-    text-align: center;
-    width:40%;
-    margin-bottom: 10px;
-    margin-left: 30%;
-    margin-right: 30%;
-    background-color: #ff7865;
-    color:white;
-    border-radius: 5px;
-}
-
-#bookingScreen .packageItem{
-    background:linear-gradient(to bottom,#efefef 1%, #fbfbfb 85%, #efefef 100%);
-    padding: 2%;
-}
-
-#bookingScreen .packageDescriptionContainer{
-    border-radius: 5px;
-    margin-top: 20px;
-    font-size: 14px;
-    min-width: 110px;
-    text-align: right;
-}
-
-#bookingScreen .packageDescriptionContainer .row{
-    margin-top: 5px;
-}
-
-.packageIcon{
-    width: 25px;
-    margin: 3% 0;
-}
-
-.packageWrapper{
-    display: flex;
-    justify-content: center;
-}
-
-.packageItem{
-    width: 90%;
-    border-radius: 5px;
-    margin: 5px 0;
-}
-
-.packageHead{
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    margin: 5px auto;
-    height: 40px;
-    background: white;
-}
-
-.packageAdd{
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    width: 90%;
-    height: 40px;
-    margin: 5px auto;
-    background:linear-gradient(to bottom,#efefef 1%, #fbfbfb 85%, #efefef 100%);
-}
-
-.packageAdd:hover{
-    background:linear-gradient(to bottom,#f9f9f9 1%, #fefefe 85%, #f9f9f9 100%);
-    cursor: pointer;
-}
-
-.packageHead span, .packageAdd span{
-    color: #636363;
-    white-space: nowrap;
-    overflow: hidden;
-    border-radius: 5px;
-    font-size: 16px;
-    padding-left: 2%;
-}
-
-#bookingScreen #userDetails .feedback, #bookingScreen #errorMsg{
-    min-height: 20px;
-    color: rgba(226, 0, 0, 0.6);
-    font-size: 12px;
-    text-align: center;
-    text-transform: initial;
-}
-
-#bookingScreen .total span{
-    text-transform: initial;
-    margin-left: 10%;
-    font-size: 14px;
-    padding: 0 5px;
-}
-
-#bookingScreen .btn{
-    margin-top: 0;
+.formWrapper{
+    max-width: 900px;
+    width:90%;
+    height:90%;
+    margin: 2% 0;
+    box-shadow: 0 0 20px rgba(100, 100, 100,0.5);
+    border-radius: 4px;
+    background-color: white;
 }
