@@ -1,5 +1,4 @@
 body {
-    font-family: 'Roboto Condensed', sans-serif;
     text-transform: uppercase;
     color: #636363;
     background:linear-gradient(to bottom, #f2f4f7 0%, white 100%) no-repeat;
@@ -26,9 +25,8 @@ header .icons #returnBtn{
 }
 
 main #adminContent{
-    width: 90%;
+    width: 95%;
 }
-
 main .sectionWrap{
     width: 95%;
     min-height: 100px;
@@ -39,8 +37,6 @@ main .sectionWrap{
     box-shadow: 0 0 15px rgba(200, 200, 200,0.8);
     text-align: center;
 }
-
-
 main #adminContent #adminImage{
     width: 25%;
     padding: 10px 0;
@@ -55,22 +51,10 @@ main #adminContent #adminWrap{
     align-items: center;
     justify-content: center;
 }
-
 main .adminIcon{
     width: 60%;
     margin: 10% 0;
 }
-
-.btn{
-    display: block;
-    text-transform: uppercase;
-    color: white;
-    border: none;
-    background-color: #ff7865;
-    margin: 5% auto 5%;
-    padding: 1% 8%;
-}
-
 main .userIconWrap{
     padding:0;
     margin:0;
@@ -78,14 +62,12 @@ main .userIconWrap{
     align-items: center;
     justify-content: center;
 }
-
 main .userIcon{
     width: 70%;
     margin-left:30%;
     min-width: 25px;
     border-radius: 20%;
 }
-
 main #adminContent .sectionWrap h1{
     text-align: center;
     height: 100%;
@@ -96,32 +78,26 @@ main #adminContent .sectionWrap h1{
     color: white;
     font-weight: bold;
 }
-
 main #adminContent .headWrap{
     margin: 10px 10% 0 0;
     border-radius: 5px;
-    background-color: #d1d1d1;
+    background-color: #8f8f8f;
 }
-
 main .userWrap, main .bookingWrap{
     background:linear-gradient(to bottom, #f9f9f9 0%, #f1f1f1 100%);
     border-radius: 5px;
     margin: 7px auto;
 }
-
 main .userWrap{
     margin-top: 5%;
 }
-
 main #objectsWrap {
     padding: 5%;
 }
-
 main .chevron{
     font-size: 16px;
     color: #d4d4d4;
 }
-
 main .userWrap .row , main .bookingWrap .row{
     width: 100%;
     margin: auto;
@@ -129,11 +105,52 @@ main .userWrap .row , main .bookingWrap .row{
     align-items: center;
     font-size: 14px;
 }
-
 main .userWrap .userField{
     text-transform: capitalize;
     font-size: 12px;
     color: black;
+}
+main .userWrap input{
+    display: initial;
+    width: 90%;
+    font-size: 14px;
+    color: #222222;
+    margin: 5px 0;
+    border: none;
+    background: none;
+    text-align: center;
+}
+main .userWrap label, .userWrap span{
+    color: white;
+    font-weight: bold;
+    background-color: #8f8f8f;
+    padding: 2px 6%;
+    border-radius: 5px;
+}
+main .bookingWrap span{
+    font-size: 14px;
+    font-weight: bold;
+    color: #b1b1b1;
+    border-radius: 5px;
+}
+main #errorMessage{
+    min-height: 20px;
+    color: rgba(226, 0, 0, 0.6);
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    text-transform: initial;
+}
+main #addPackage{
+    text-align: center;
+}
+main #modal #closeBtn{
+    background-color: #636363;
+}
+main #modal .modal-body{
+    text-transform: initial;
 }
 
 form input{
@@ -149,7 +166,7 @@ form input{
     display: block;
 }
 form input::placeholder{
-    color: lightgrey;
+    color: #b1b1b1;
 }
 form input:hover{
     border-color: #ededed;
@@ -157,66 +174,24 @@ form input:hover{
 }
 label{
     margin-top: 10px;
-    font-size: 14px;
+    font-size: 16px;
     text-transform: uppercase;
     text-align: center;
-    color: #7a7a7a;
+    color: #222222;
 }
 
+.btn{
+    display: block;
+    text-transform: uppercase;
+    color: white;
+    border: none;
+    background-color: #ff7865;
+    margin: 5% auto 5%;
+    padding: 1% 8%;
+}
 .hover:hover{
     opacity: 0.7;
     cursor: pointer;
     text-decoration: none;
     color: white;
-}
-
-
-.userWrap input{
-    display: initial;
-    width: 90%;
-    font-size: 14px;
-    color: #636363;
-    margin: 5px 0;
-    border: none;
-    background: none;
-    text-align: center;
-}
-
-.userWrap label, .userWrap span{
-    color: white;
-    font-weight: bold;
-    background-color: #d1d1d1;
-    padding: 2px 10%;
-    border-radius: 5px;
-}
-
-.bookingWrap span{
-    font-size: 14px;
-    font-weight: bold;
-    color: #b1b1b1;
-    border-radius: 5px;
-}
-
-#errorMessage{
-    min-height: 20px;
-    color: rgba(226, 0, 0, 0.6);
-    font-size: 14px;
-    text-align: center;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    text-transform: initial;
-}
-
-
-#addPackage{
-    text-align: center;
-}
-
-#closeBtn{
-    background-color: #636363;
-}
-
-#modal .modal-body{
-    text-transform: initial;
 }
