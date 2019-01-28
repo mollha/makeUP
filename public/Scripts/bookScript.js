@@ -69,8 +69,8 @@ $(document).ready(function()
             let packageData = [];
             $('#bookingForm #packageSection').find(".form-field").each(function(){
                 let style = $(this).val();
-                let package = $(this).parent().parent().find('.packages').val();
-                packageData.push({package, style});
+                let packageName = $(this).parent().parent().find('.packages').val();
+                packageData.push({packageName, style});
             });
             $.post('/bookings',
                 {
@@ -93,13 +93,14 @@ $(document).ready(function()
         let styles = $(mainPackage).find('.styles');
         $(packages).val( $(packages).prop('defaultSelected'));
         $(styles).val( $(styles).prop('defaultSelected'));
-        $('.name').val("");
-        $('.name').css('box-shadow','none');
+        const name = $('.name');
+        $(name).val("");
+        $(name).css('box-shadow','none');
         $('.cost').empty();
         $('.time').empty();
         $('.totalCost').html('TOTAL COST:');
         $('.totalTime').html('TOTAL TIME:');
-    })
+    });
 
     function checkValidPackages(){
         let success = true;
@@ -131,7 +132,7 @@ $(document).ready(function()
     }
 
     //retrieve styles when new package is selected
-    $("main #bookingScreen").on('change', '.packages', function(){
+    $("main #bookingScreen #packageSection").on('change', '.packages', function(){
         const packageName = $(this).val();
         const styles = $(this).parent().parent().find('.styles');
         $('#errorMsg').empty();
