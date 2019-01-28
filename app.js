@@ -66,7 +66,7 @@ let packages =
         ]
     };
 
-let bookings = [{"username": "doctorwhocomposer", "packageList" : [ { package: 'nails', style: 'Perfect nude' } ]}];
+let bookings = [{"username": "doctorwhocomposer", "packageList" : [ { packageName: 'nails', style: 'perfect nude' } ]}];
 
 
 //routes

@@ -1,21 +1,7 @@
 $(document).ready(function()
 {
-    const url = new URL(window.location);
-    let packagePreset = url.searchParams.getAll("package");
-
     //load packages on page load
     loadPackages($('#bookingScreen .packageWrapper .packages'));
-
-    if(packagePreset){
-        $('.packages').ready(function() {
-            $('.packages option[value="' + packagePreset[0].toLowerCase() + '"]').prop('selected', true);
-            $('.packages').trigger('change');
-        });
-        $('.styles').ready(function () {
-            $('.styles option[value="'+packagePreset[1].toLowerCase()+'"]').prop('selected', true);
-            $('.styles').trigger('change');
-        });
-    }
 
     //when a text input field is changed, decide if the input is valid and respond accordingly
     $('main #bookingScreen .name').change(function(){
@@ -84,6 +70,7 @@ $(document).ready(function()
         return false;
     });
 
+    //when the success modal is closed reset form
     $('#modal').on('hidden.bs.modal', function () {
         $('#extraPackage').empty();
         $('.feedback').empty();
@@ -102,6 +89,7 @@ $(document).ready(function()
         $('.totalTime').html('TOTAL TIME:');
     });
 
+    //check if all of the packages are valid
     function checkValidPackages(){
         let success = true;
         $('#bookingForm #packageSection').find(".form-field").each(function(){

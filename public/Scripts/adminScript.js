@@ -1,5 +1,9 @@
 $(document).ready(function()
 {
+    //load users on page load
+    loadUsers();
+
+    //clicking on the chevron of each user should reveal more information about them
     $("#objectsWrap").on('click', '.userWrap .chevron', function(){
         let section = $(this).parent().parent();
         let username = $(section).attr('id');
@@ -24,7 +28,7 @@ $(document).ready(function()
         }
         });
 
-
+    //load users into DOM
     function loadUsers() {
         $('#objectsWrap').empty();
         $.get("/people",
@@ -59,23 +63,19 @@ $(document).ready(function()
                                                 '<img src="./Images/booking.png" alt="Booking" class="userIcon">'+
                                             '</div>'+
                                             '<div class="col-10">'+
-                                                '<span>'+response[booking].package+' : '+response[booking].style+'</span>'+
+                                                '<span>'+response[booking].packageName+' : '+response[booking].style+'</span>'+
                                             '</div>'+
                                         '</div>'+
                                     '</div>'
                                 );
-                            };
+                            }
                         });
                 }
             });
     }
 
-
-    loadUsers();
-
-
-
-    $('#objectsWrap').on('change', '.userWrap input', function(){
+    //when any of the fields are changed, edit the modal and make it appear
+    $('#objectsWrap .userWrap').on('change', 'input', function(){
         const inputID = $(this).attr('id');
         const newValue = $(this).val();
         const usernameVal = $(this).parent().parent().parent().attr('id');
@@ -86,12 +86,13 @@ $(document).ready(function()
         $('#modal').modal('toggle');
     });
 
-
-    $('#modal').on('click', '#saveBtn',function(){
+    //save changes, post the new field values
+    $('#modal .modal-footer').on('click', '#saveBtn',function(){
         $('#modal').modal('toggle');
-        const usernameVal = $('#modal .modal-body').find('#usernameVal').html();
-        const inputID = $('#modal .modal-body').find('#inputID').html();
-        const newValue = $('#modal .modal-body').find('#newValue').html();
+        const modalBody = $('#modal .modal-body');
+        const usernameVal = $(modalBody).find('#usernameVal').html();
+        const inputID = $(modalBody).find('#inputID').html();
+        const newValue = $(modalBody).find('#newValue').html();
         $.post('/people/'+usernameVal,
             {
                 fieldName: inputID,
@@ -102,15 +103,19 @@ $(document).ready(function()
         $('#'+usernameVal+' #'+inputID).val(newValue);
     });
 
+    //when the modal is hidden, don't save changes and reset the field to its original value
     $('#modal').on('hide.bs.modal', function(){
-        const usernameVal = $('#modal .modal-body').find('#usernameVal').html();
-        const inputID = $('#modal .modal-body').find('#inputID').html();
-        const oldValue = $('#modal .modal-body').find('#oldValue').html();
+        const modalBody = $('#modal .modal-body');
+        const usernameVal = $(modalBody).find('#usernameVal').html();
+        const inputID = $(modalBody).find('#inputID').html();
+        const oldValue = $(modalBody).find('#oldValue').html();
         $('#'+usernameVal+' #'+inputID).val(oldValue);
     });
 
+    //when a new user is created, post to people authentication
     $('#signUpForm').on('submit', function(){
-        $('#createUser #errorMessage').empty();
+        const errorMessage = $('#createUser #errorMessage');
+        $(errorMessage).empty();
         const usernameVal = $('#signUpForm #usernameField').val();
         const forenameVal = $('#signUpForm #forenameField').val();
         const surnameVal = $('#signUpForm #surnameField').val();
@@ -128,18 +133,17 @@ $(document).ready(function()
                 },
                 headers: {
                     'access_token': 'concertina'
-                },
-                success: function (response) {
-                },
+                }
             });
             loadUsers();
         }
         else{
-            $('#createUser #errorMessage').html('Form fields cannot be left blank');
+            $(errorMessage).html('Form fields cannot be left blank');
         }
         return false;
     });
 
+    //when form fields are changed, remove the error message
     $('.form-field').on('change', function(){
         $('#createUser #errorMessage').empty();
     })

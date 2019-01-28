@@ -18,58 +18,58 @@
 
         <main>
             <div id="adminContent" class="container-fluid">
-            <div id="titleWrapper">
-                <div class="row">
-                    <div class="col">
-                        <div id="adminWrap">
-                            <img src="./Images/Admin.png" alt="Admin" id="adminImage">
+                <div id="titleWrapper">
+                    <div class="row">
+                        <div class="col">
+                            <div id="adminWrap">
+                                <img src="./Images/Admin.png" alt="Admin" id="adminImage">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div id="contentWrapper">
-                <div class="row">
-                    <div class="col-sm-5">
-                        <div id="createUser" class="row">
-                            <div class="col">
-                                <div class="sectionWrap">
-                                    <div class="row align-items-center">
-                                        <div class="col-3 col-sm-5 col-md-3">
-                                            <img src="./Images/addUser.png" alt="Add user" class="adminIcon">
-                                        </div>
-                                        <div class="col-9 col-sm-7 col-md-9">
-                                            <div class="headWrap">
-                                                <h1>Add User</h1>
+                <div id="contentWrapper">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div id="createUser" class="row">
+                                <div class="col">
+                                    <div class="sectionWrap">
+                                        <div class="row align-items-center">
+                                            <div class="col-3 col-sm-5 col-md-3">
+                                                <img src="./Images/addUser.png" alt="Add user" class="adminIcon">
+                                            </div>
+                                            <div class="col-9 col-sm-7 col-md-9">
+                                                <div class="headWrap">
+                                                    <h1>Add User</h1>
+                                                </div>
                                             </div>
                                         </div>
+                                        <form id="signUpForm">
+                                            <div class="row" id="userInfo">
+                                                <div class="col">
+                                                    <label for="forenameField">Forename</label>
+                                                    <input id="forenameField" class="form-field" type="text" placeholder="e.g. Ariana">
+                                                    <label for="surnameField">Surname</label>
+                                                    <input id="surnameField" class="form-field" type="text" placeholder="e.g. Grande">
+                                                    <label for="usernameField">Username</label>
+                                                    <input id="usernameField" class="form-field" type="text" placeholder="e.g. ThankUNext">
+                                                </div>
+                                            </div>
+                                            <div class="row" id="errorMessage"></div>
+                                            <button type="submit" class="btn hover book">Book</button>
+                                        </form>
                                     </div>
-                                    <form id="signUpForm">
-                                        <div class="row" id="userInfo">
-                                            <div class="col">
-                                                <label for="forenameField">Forename</label>
-                                                <input id="forenameField" class="form-field" type="text" placeholder="e.g. Ariana">
-                                                <label for="surnameField">Surname</label>
-                                                <input id="surnameField" class="form-field" type="text" placeholder="e.g. Grande">
-                                                <label for="usernameField">Username</label>
-                                                <input id="usernameField" class="form-field" type="text" placeholder="e.g. ThankUNext">
-                                            </div>
-                                        </div>
-                                        <div class="row" id="errorMessage"></div>
-                                        <button type="submit" class="btn hover book">Book</button>
-                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="sectionWrap">
+                                <div id="objectsWrap">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-7">
-                        <div class="sectionWrap">
-                            <div id="objectsWrap">
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
-        </div>
             <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
