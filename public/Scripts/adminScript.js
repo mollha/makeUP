@@ -75,7 +75,7 @@ $(document).ready(function()
     }
 
     //when any of the fields are changed, edit the modal and make it appear
-    $('#objectsWrap .userWrap').on('change', 'input', function(){
+    $('#objectsWrap').on('change', '.userWrap input', function(){
         const inputID = $(this).attr('id');
         const newValue = $(this).val();
         const usernameVal = $(this).parent().parent().parent().attr('id');
