@@ -1,5 +1,6 @@
 $(document).ready();
 {
+    //when a text input field is changed, decide if the input is valid and respond accordingly
     $('main #bookingScreen .name').change(function(){
         const field = $(this);
         const fieldVal = $(this).val();
@@ -34,7 +35,7 @@ $(document).ready();
         }
     });
 
-
+    //on form submission, check validity of input and post form to bookings
     $("#bookingForm").submit(function(){
         let success = true;
         $('#bookingForm #userDetails').find(".form-field").each(function(){
@@ -48,7 +49,19 @@ $(document).ready();
         });
         let packageResult = checkValidPackages();
         if(success && packageResult){
-            book();
+            let packageData = [];
+            $('#bookingForm #packageSection').find(".form-field").each(function(){
+                let style = $(this).val();
+                let package = $(this).parent().parent().find('.packages').val();
+                packageData.push({package, style});
+            });
+            $.post('/bookings',
+                {
+                    username: $('#bookingForm #userDetails #Username').val(),
+                    forename: $('#bookingForm #userDetails #Forename').val(),
+                    surname: $('#bookingForm #userDetails #Surname').val(),
+                    packages: JSON.stringify(packageData)
+                });
             $('#modal').modal('toggle');
         }
         return false;
@@ -71,48 +84,6 @@ $(document).ready();
         $('.totalTime').html('TOTAL TIME:');
     })
 
-    function book(){
-        let packageData = [];
-        $('#bookingForm #packageSection').find(".form-field").each(function(){
-            let styleName = $(this).val();
-            let packageName = $(this).parent().parent().find('.packages').val();
-            packageData.push({packageName, styleName});
-        });
-        $.post('/bookings',
-            {
-                username: $('#bookingForm #userDetails #Username').val(),
-                forename: $('#bookingForm #userDetails #Forename').val(),
-                surname: $('#bookingForm #userDetails #Surname').val(),
-                packages: JSON.stringify(packageData)
-            },
-            function(response){
-
-            });
-
-        // $.get("/packages/" + packageName,
-        //     function(response){
-        //         for(let styleName in response){
-        //             if(response[styleName].style === style){
-        //                 packageData.push(response[styleName]);
-        //                 alert(JSON.stringify(packageData));
-        //             }
-        //         }
-        //     });
-
-        // let data = {
-        //     username: '',
-        //     forename: '',
-        //     surname: '',
-        //     packages: [
-        //         {
-        //             style: '',
-        //             cost: '',
-        //             time: ''
-        //         }
-        //     ]
-        // }
-    }
-
     function checkValidPackages(){
         let success = true;
         $('#bookingForm #packageSection').find(".form-field").each(function(){
@@ -123,12 +94,7 @@ $(document).ready();
                 $(this).parent().parent().parent().css("box-shadow", "0 0 5px rgb(255, 0, 0)");
             }
         });
-        if(success){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return success;
     }
 
     //field should light up green and allow form submission if the input is acceptable

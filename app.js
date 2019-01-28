@@ -64,20 +64,35 @@ let packages =
                 cost: "120"
             }
         ]
-    }
+    };
 
-let bookings = {
-    doctorwhocomposer: []}
+let bookings = [{"username": "doctorwhocomposer", "packageList" : [ { package: 'nails', style: 'Perfect nude' } ]}];
 
 
 //routes
-
 app.get('/people', function(req, res){
     res.send(people);
 });
 
 app.get('/packages', function(req, res){
     res.send(packages);
+});
+
+app.get('/bookings', function(req, res){
+    res.send(bookings);
+});
+
+app.get('/bookings/:username', function(req, res){
+    let success = false;
+    for(let booking in bookings) {
+        if (req.params.username === bookings[booking].username) {
+            res.send(bookings[booking].packageList);
+            success = true;
+        }
+    }
+    if(success === false){
+        res.send(null);
+    }
 });
 
 app.get('/packages/:item', function(req, res){
@@ -131,9 +146,10 @@ app.post('/people/:username', function(req, res) {
     }
 });
 
-app.post('/bookings', function(req, res) {
-    console.log(req.body.packages);
-    res.sendStatus(200);
+app.post('/bookings', function(req) {
+    people.push({"username" : req.body.username, "forename" : req.body.forename, "surname" : req.body.surname});
+    let requestPackages = JSON.parse(req.body.packages);
+    bookings.push({username : req.body.username, packageList : requestPackages});
 });
 
 //make it accessible

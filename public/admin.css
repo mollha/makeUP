@@ -103,10 +103,14 @@ main #adminContent .headWrap{
     background-color: #d1d1d1;
 }
 
-main .userWrap{
+main .userWrap, main .bookingWrap{
     background:linear-gradient(to bottom, #f9f9f9 0%, #f1f1f1 100%);
     border-radius: 5px;
     margin: 7px auto;
+}
+
+main .userWrap{
+    margin-top: 5%;
 }
 
 main #objectsWrap {
@@ -118,7 +122,7 @@ main .chevron{
     color: #d4d4d4;
 }
 
-main .userWrap .row {
+main .userWrap .row , main .bookingWrap .row{
     width: 100%;
     margin: auto;
     color: #7a7a7a;
@@ -183,6 +187,13 @@ label{
     font-weight: bold;
     background-color: #d1d1d1;
     padding: 2px 10%;
+    border-radius: 5px;
+}
+
+.bookingWrap span{
+    font-size: 14px;
+    font-weight: bold;
+    color: #b1b1b1;
     border-radius: 5px;
 }
 

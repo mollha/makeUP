@@ -30,23 +30,42 @@ function loadUsers() {
             for (let user in data) {
                 let username = data[user].username;
                 $('#objectsWrap').append(
-                    '<div id="'+username+'" class="userWrap">'+
-                        '<div class="row">'+
-                            '<div class="userIconWrap col-1">'+
-                                '<img src="./Images/user.png" alt="User" class="userIcon">'+
-                            '</div>'+
-                            '<div class="col-10">'+
-                                '<span>'+username+'</span>'+
-                            '</div>'+
-                            '<div class="userIconWrap col-1 chevron">'+
-                                '<i class="hover fa fa-chevron-down"></i>'+
+                    '<div class="usersContainer">'+
+                        '<div id="'+username+'" class="userWrap">'+
+                            '<div class="row">'+
+                                '<div class="userIconWrap col-1">'+
+                                    '<img src="./Images/user.png" alt="User" class="userIcon">'+
+                                '</div>'+
+                                '<div class="col-10">'+
+                                    '<span>'+username+'</span>'+
+                                '</div>'+
+                                '<div class="userIconWrap col-1 chevron">'+
+                                    '<i class="hover fa fa-chevron-down"></i>'+
+                                '</div>'+
                             '</div>'+
                         '</div>'+
+                        '<div class="bookingSpace"></div>'+
                     '</div>'
                 );
+                $.get("/bookings/"+username,
+                    function(response) {
+                        for(let booking in response){
+                            $('#objectsWrap #'+username).parent().find(' .bookingSpace').append(
+                                '<div id="'+'username'+'Booking" class="bookingWrap">'+
+                                    '<div class="row">'+
+                                        '<div class="userIconWrap col-1">'+
+                                            '<img src="./Images/booking.png" alt="Booking" class="userIcon">'+
+                                        '</div>'+
+                                        '<div class="col-10">'+
+                                            '<span>'+response[booking].package+' : '+response[booking].style+'</span>'+
+                                        '</div>'+
+                                    '</div>'+
+                                '</div>'
+                            );
+                        };
+                    });
             }
         });
-
 }
 
 
