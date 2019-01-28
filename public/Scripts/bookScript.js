@@ -1,4 +1,4 @@
-$(document).ready();
+$(document).ready(function()
 {
     //when a text input field is changed, decide if the input is valid and respond accordingly
     $('main #bookingScreen .name').change(function(){
@@ -268,4 +268,4 @@ $(document).ready();
         $(".packages").val(packagePreset[0]).change();
         $(".styles").val(packagePreset[1]);
     }
-}
+});

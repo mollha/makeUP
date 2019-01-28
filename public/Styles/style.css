@@ -7,26 +7,15 @@ body {
 header .icons{
     background-color: #7a7a7a;
     height: 30px;
-    text-align: right;
     position: fixed;
     top:0;
     z-index: 16;
     width: 100%;
 }
-header .icons button{
-    margin-right: 20px;
-    text-transform: uppercase;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 12px;
-}
-
 header .navbar #bookBlock:hover{
     background-color: #ff9a8c;
     cursor: pointer;
 }
-
 header .navbar{
     top: 30px;
     font-size: 16px;
@@ -68,17 +57,17 @@ header .navbar .show{
     box-shadow: 0 10px 5px -5px rgba(0,0,0,0.1);
 }
 
-#homePageContent #imageCarouselFooter{
+main #homePageContent #imageCarouselFooter{
     background-color: rgba(255, 120, 101, 0.2);
     height: 5px;
 }
-#homePageContent #descSection{
+main #homePageContent #descSection{
     background-color: white;
 }
-#homePageContent #reviewSection{
+main #homePageContent #reviewSection{
     background-color: #d8d8d8;
 }
-#homePageContent #reviewSection div{
+main #homePageContent #reviewSection div{
     font-family: 'Playfair Display', serif;
     text-align: center;
     text-transform: initial;
@@ -88,7 +77,7 @@ header .navbar .show{
     color: white;
     font-weight: bold;
 }
-#homePageContent #descSection .roundWrap{
+main #homePageContent #descSection .roundWrap{
     border-radius: 15px;
     display: flex;
     background-color: white;
@@ -101,7 +90,7 @@ header .navbar .show{
     align-items: center;
     margin: 5% auto;
 }
-#homePageContent #descSection .roundWrap .innerWrap{
+main #homePageContent #descSection .roundWrap .innerWrap{
     width: 90%;
     margin-left: 5%;
     margin-top: 3%;
@@ -109,7 +98,7 @@ header .navbar .show{
     text-align: center;
     font-weight: bold;
 }
-#homePageContent #stepText{
+main #homePageContent #stepText{
     font-family: 'Playfair Display', serif;
     font-size: 8vw;
     background-color: white;
@@ -119,13 +108,13 @@ header .navbar .show{
     margin-top: 20px;
     text-transform: initial;
 }
-#homePageContent #stepByStep .stepContainer{
+main #homePageContent #stepByStep .stepContainer{
     width: 90%;
     height: 80%;
     margin: 10% auto;
     box-shadow: 0 0 10px rgba(200, 200, 200,1);
 }
-#homePageContent #stepByStep .content{
+main #homePageContent #stepByStep .content{
     font-size: 16px;
     text-align: center;
     padding:5%;
@@ -138,16 +127,6 @@ header .navbar .show{
     margin-bottom:2%;
 }
 
-main #blurScreen{
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.7);
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: none;
-    z-index: 1032;
-}
 main #bookingScreen{
     width: 100%;
     margin: 0 auto;
@@ -157,23 +136,6 @@ main #bookingScreen{
     align-items: center;
     height: 30%;
     background: url("../Images/booking-bg.png") fixed;
-}
-main #signUpScreen{
-    max-width: 500px;
-    width: 60%;
-    min-width: 450px;
-    top: 50%;
-    left: 50%;
-    margin-top: -120px; /* Negative half of height. */
-    margin-left: -225px; /* Negative half of width. */
-    position: fixed;
-    z-index: 1033;
-    display: none;
-    border-radius: 4px;
-    justify-content: center;
-    align-items: center;
-    background: url("../Images/booking-bg.png");
-    text-align: initial;
 }
 
 main .formWrapper{

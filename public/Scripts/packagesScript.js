@@ -1,5 +1,5 @@
 // Functions
-$(document).ready()
+$(document).ready(function()
 {
     const url = new URL(window.location);
     let tab = url.searchParams.get("tab");
@@ -12,15 +12,15 @@ $(document).ready()
         $("#" + id + "Banner" ).show();
     }
 
+    $("header .navbar .dropdown-menu a").click(function () {
+        const id = $(this).text().toLowerCase();
+        setActiveTab(id+'Tab');
+    });
+
     function hidePackageContent(){
         $("main #packagesPageContent .tab-content .tabContentPanel2").hide();
         $("main #packagesPageContent .tab-content .findOutMore").show();
     }
-
-    //close navbar dropdown on selects
-    $("header .navbar a").on('click', function () {
-        $('header .navbar .navbar-collapse').collapse('hide');
-    });
 
     $("main #packagesPageContent #tabList .nav-item").click(function (){
         let id = $(this).find('.nav-link').attr('href');
@@ -36,4 +36,4 @@ $(document).ready()
         $(this).hide();
         $("main #packagesPageContent .tab-content .tabContentPanel2").show();
     });
-}
+});
