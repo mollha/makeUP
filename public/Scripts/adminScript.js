@@ -109,14 +109,6 @@ $('#modal').on('hide.bs.modal', function(){
 
 $('#signUpForm').on('submit', function(){
     $('#createUser #errorMessage').empty();
-    $('.form-field').each(function () {
-        let id = $(this).attr('id');
-        id = id.substring(0,1).toUpperCase()+id.substring(1, id.length-5);
-        let fieldVal = $(this).fieldVal;
-        if(!fieldVal){
-            $('#createUser #errorMessage').html(id+' cannot be left blank');
-        }
-    });
     const usernameVal = $('#signUpForm #usernameField').val();
     const forenameVal = $('#signUpForm #forenameField').val();
     const surnameVal = $('#signUpForm #surnameField').val();
@@ -139,6 +131,9 @@ $('#signUpForm').on('submit', function(){
             },
         });
         loadUsers();
+    }
+    else{
+        $('#createUser #errorMessage').html('Form fields cannot be left blank');
     }
     return false;
 });

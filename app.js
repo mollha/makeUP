@@ -152,7 +152,4 @@ app.post('/bookings', function(req) {
     bookings.push({username : req.body.username, packageList : requestPackages});
 });
 
-//make it accessible
-//re watch stevens last lecture before making video demonstration
-
 module.exports = app;

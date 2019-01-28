@@ -261,4 +261,11 @@ $(document).ready();
 
     //load packages on page load
     loadPackages($('#bookingScreen .packageWrapper .packages'));
+
+    const url = new URL(window.location);
+    let packagePreset = url.searchParams.getAll("package");
+    if(packagePreset){
+        $(".packages").val(packagePreset[0]).change();
+        $(".styles").val(packagePreset[1]);
+    }
 }
