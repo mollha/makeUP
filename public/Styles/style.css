@@ -284,10 +284,6 @@ main #bookingScreen #bookingForm #packageSelectHeader p{
     color:white;
     border-radius: 5px;
 }
-main #bookingScreen .packageItem{
-    background:linear-gradient(to bottom,#efefef 1%, #fbfbfb 85%, #efefef 100%);
-    padding: 2%;
-}
 main #bookingScreen .packageDescriptionContainer{
     border-radius: 5px;
     margin-top: 20px;
@@ -310,6 +306,8 @@ main #bookingScreen .packageItem{
     width: 90%;
     border-radius: 5px;
     margin: 5px 0;
+    background:linear-gradient(to bottom,#efefef 1%, #fbfbfb 85%, #efefef 100%);
+    padding: 2%;
 }
 main #bookingScreen .packageHead{
     border-radius: 5px;
