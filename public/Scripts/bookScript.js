@@ -1,5 +1,22 @@
 $(document).ready(function()
 {
+    const url = new URL(window.location);
+    let packagePreset = url.searchParams.getAll("package");
+
+    //load packages on page load
+    loadPackages($('#bookingScreen .packageWrapper .packages'));
+
+    if(packagePreset){
+        $('.packages').ready(function() {
+            $('.packages option[value="' + packagePreset[0].toLowerCase() + '"]').prop('selected', true);
+            $('.packages').trigger('change');
+        });
+        $('.styles').ready(function () {
+            $('.styles option[value="'+packagePreset[1].toLowerCase()+'"]').prop('selected', true);
+            $('.styles').trigger('change');
+        });
+    }
+
     //when a text input field is changed, decide if the input is valid and respond accordingly
     $('main #bookingScreen .name').change(function(){
         const field = $(this);
@@ -257,15 +274,5 @@ $(document).ready(function()
         });
         $('.total .totalTime').html('TOTAL TIME: '+totalTime+' min');
         $('.total .totalCost').html('TOTAL COST: £'+totalCost);
-    }
-
-    //load packages on page load
-    loadPackages($('#bookingScreen .packageWrapper .packages'));
-
-    const url = new URL(window.location);
-    let packagePreset = url.searchParams.getAll("package");
-    if(packagePreset){
-        $(".packages").val(packagePreset[0]).change();
-        $(".styles").val(packagePreset[1]);
     }
 });

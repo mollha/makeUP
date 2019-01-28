@@ -13,55 +13,55 @@ let people = [
 
 let packages =
     {
-        nails: [
-            {
-                style: "Block colour",
-                time: "20",
-                cost: "45"
-            },
-            {
-                style: "Perfect nude",
-                time: "25",
-                cost: "50"
-            },
-            {
-                style: "Quirky",
-                time: "40",
-                cost: "60"
-            }
-        ],
         hair: [
             {
-                style: "Textured updo",
+                style: "textured updo",
                 time: "30",
                 cost: "70"
             },
             {
-                style: "Sleek blow-dry",
+                style: "sleek blow-dry",
                 time: "15",
                 cost: "50"
             },
             {
-                style: "Insane curls",
+                style: "insane curls",
                 time: "20",
                 cost: "60"
             }
         ],
         makeup: [
             {
-                style: "Natural touch-up",
+                style: "natural touch-up",
                 time: "50",
                 cost: "90"
             },
             {
-                style: "Vibrant",
+                style: "vibrant",
                 time: "55",
                 cost: "110"
             },
             {
-                style: "Classic glam",
+                style: "classic glam",
                 time: "60",
                 cost: "120"
+            }
+        ],
+        nails: [
+            {
+                style: "block colour",
+                time: "20",
+                cost: "45"
+            },
+            {
+                style: "perfect nude",
+                time: "25",
+                cost: "50"
+            },
+            {
+                style: "quirky",
+                time: "40",
+                cost: "60"
             }
         ]
     };
