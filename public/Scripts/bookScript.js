@@ -46,8 +46,13 @@ $(document).ready(function()
             if(!$(field).hasClass("true") && !$(field).hasClass("false")){
                 success = false;
                 incorrectField(field);
-                const feedback = $(this).parent().find(".feedback");
-                feedback.html($(this).parent().find("input").attr("id")+" field cannot be blank");
+                if(!$(field).hasClass("false")) {
+                    const feedback = $(this).parent().find(".feedback");
+                    feedback.html($(this).parent().find("input").attr("id") + " field cannot be blank");
+                }
+            }
+            if($(field).hasClass("false")){
+                success = false;
             }
         });
         let packageResult = checkValidPackages();
@@ -82,6 +87,7 @@ $(document).ready(function()
         $(styles).val( $(styles).prop('defaultSelected'));
         const name = $('.name');
         $(name).val("");
+        $(name).removeClass("true");
         $(name).css('box-shadow','none');
         $('.cost').empty();
         $('.time').empty();
