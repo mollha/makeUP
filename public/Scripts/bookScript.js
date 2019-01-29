@@ -38,7 +38,7 @@ $(document).ready(function()
         }
     });
 
-    //on form submission, check validity of input and post form to bookings
+    //on form submission, check validity of input and post form to /bookings
     $("#bookingForm").submit(function(){
         let success = true;
         $('#bookingForm #userDetails').find(".form-field").each(function(){
