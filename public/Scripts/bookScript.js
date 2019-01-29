@@ -46,10 +46,8 @@ $(document).ready(function()
             if(!$(field).hasClass("true") && !$(field).hasClass("false")){
                 success = false;
                 incorrectField(field);
-                if(!$(field).hasClass("false")) {
-                    const feedback = $(this).parent().find(".feedback");
-                    feedback.html($(this).parent().find("input").attr("id") + " field cannot be blank");
-                }
+                const feedback = $(this).parent().find(".feedback");
+                feedback.html($(this).parent().find("input").attr("id") + " field cannot be blank");
             }
             if($(field).hasClass("false")){
                 success = false;
@@ -174,6 +172,7 @@ $(document).ready(function()
             $('#packageSection .packageAdd').show();
         }
         totalCostAndTime();
+        $('#errorMsg').empty();
     });
 
     //insert new package template when clicking package add button
