@@ -120,21 +120,12 @@ $(document).ready(function()
         const forenameVal = $('#signUpForm #forenameField').val();
         const surnameVal = $('#signUpForm #surnameField').val();
         if(usernameVal && forenameVal && surnameVal){
-            $.ajax({
-                type: 'post',
-                url: '/people',
-                data: {
+            $.post('/people',{
                     username: usernameVal,
                     forename: forenameVal,
-                    surname: surnameVal
-                },
-                xhrFields: {
-                    withCredentials: false
-                },
-                headers: {
-                    'access_token': 'concertina'
-                }
-            });
+                    surname: surnameVal,
+                    access_token: 'concertina'
+                });
             loadUsers();
         }
         else{

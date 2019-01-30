@@ -113,10 +113,9 @@ app.get('/people/:username', function(req, res){
 });
 
 app.post('/people', function(req, res){
-    if(req.headers.access_token === 'concertina'){
+    if(req.body.access_token === 'concertina'){
         if(checkUsername(req.body.username)){
             people.push(req.body);
-            res.sendStatus(200);
         }
         else{
             res.sendStatus(400);
@@ -128,12 +127,13 @@ app.post('/people', function(req, res){
 });
 
 function checkUsername(username){
+    let success = true;
     for(let person in people){
-        if(person.username === username){
-            return false;
+        if(people[person].username === username){
+            success = false;
         }
     }
-    return true;
+    return success;
 }
 
 app.post('/people/:username', function(req, res) {
